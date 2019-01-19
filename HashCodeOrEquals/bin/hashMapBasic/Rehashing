@@ -1,0 +1,14 @@
+Rehashing is the process of re-calculating the hashcode of already stored 
+entries (Key-Value pairs), to move them to another bigger size hashmap when 
+Load factor threshold is reached.
+
+
+
+Why Rehashing is required? 
+
+If we keep the existing key-value pairs as it is, then doubling the capacity may not help, 
+because O(1) complexity will be achieved only if items are evenly distributed across all buckets.
+
+So for each existing key-value pairs, hashcode is calculated again with increased 
+hashmap capacity as a parameter, which results in either placing the item in same 
+bucket or in different bucket. 

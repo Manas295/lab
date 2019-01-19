@@ -1,0 +1,4 @@
+1. This attribute represents the "estimated number of concurrently updating threads"
+2. Default concurrency-level of ConcurrentHashMap is 16.
+3. Ideally, you should choose a value to accommodate as many threads as will ever 
+concurrently modify the table
