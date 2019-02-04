@@ -1,0 +1,13 @@
+ 1. When you query data from a table, first MySQL checks if the indexes exist, 
+ then MySQL uses the indexes to select exact physical corresponding 
+ rows of the table instead of scanning the whole table.
+ 
+ 
+ 2. If you create an index for every column, MySQL has to build and maintain the index table. 
+ Whenever a change is made to the rows of the table, MySQL has to rebuild the index, 
+ which takes time as well as decreases the performance of the database server.
+ 
+ 
+ 3. MySQL automatically adds any column that is declared as PRIMARY KEY, KEY , 
+ UNIQUE  or INDEX to the index. 
+ In addition, you can add indexes to the tables that already have data.

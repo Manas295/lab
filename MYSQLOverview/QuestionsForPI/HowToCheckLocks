@@ -1,0 +1,20 @@
+SHOW OPEN TABLES;
+
++-----------------------+------------------------------------------------------+--------+-------------+
+| Database              | Table                                                | In_use | Name_locked |
++-----------------------+------------------------------------------------------+--------+-------------+
+| goal                  | match_fulfillment_id_details                         |      0 |           0 |
+| loanooredoo           | loan_completed_details                               |      0 |           0 |
+| loantelenor           | account_details_ot                                   |      0 |           0 |
+| website_group_user    | gw_vas_uu_cnt_test                                   |      0 |           0 |
+| clm                   | location_rules                                       |      0 |           0 |
+| ussdgrip              | br_whitelist_msisdn                                  |      0 |           0 |
+| website_group_user    | fortree1                                             |      0 |           0 |
+| virgin                | brodcast_dashb_status                                |      0 |           0 |
+| website_group_user    | promotional_message_info                             |      0 |           0 |
+| test_test             | fullfilment_ip_detail                                |      0 |           0 |
+| testdbforgui          | ags_send_msg                                         |      0 |           0 |
+
+
+IF in_use > 0
+

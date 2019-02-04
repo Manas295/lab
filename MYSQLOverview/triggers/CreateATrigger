@@ -1,0 +1,33 @@
+ CREATE TRIGGER trigger_name trigger_time trigger_event
+ ON table_name
+ FOR EACH ROW
+ BEGIN
+ ...
+ END;
+ 
+ 
+ root@localhost:[loan]> create trigger  after_loan_running_details_update after update on loan_running_details
+    -> for each row
+    -> begin
+    -> insert into my_test_table (col1,col2,col3) values('my','name is','robin');
+    -> end//
+Query OK, 0 rows affected (0.04 sec)
+
+root@localhost:[loan]> select * from my_test_table;
+    -> //
+Empty set (0.01 sec)
+
+root@localhost:[loan]> update loan_running_details set loanstatus=0 where msisdn=1111111111//
+Query OK, 0 rows affected (0.01 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+root@localhost:[loan]> select * from my_test_table;
+    -> //
++------+---------+-------+
+| col1 | col2    | col3  |
++------+---------+-------+
+| my   | name is | robin |
++------+---------+-------+
+1 row in set (0.00 sec)
+
+root@localhost:[loan]>

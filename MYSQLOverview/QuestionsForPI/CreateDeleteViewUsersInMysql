@@ -1,0 +1,87 @@
+________________CRETATE USER ________________
+
+root@localhost:[(none)]> create user 'testuser1'@'localhost' identified by 'test@123';
+Query OK, 0 rows affected (0.10 sec)
+
+root@localhost:[(none)]>
+
+
+__________________VIEW USERS _________________
+
+root@localhost:[mysql]> SELECT User from mysql.user;
++---------------+
+| User          |
++---------------+
+| access        |
+| appteam       |
+| cms           |
+| cportal       |
+| ebu_rep_db    |
+| gui           |
+| mcar          |
+| power         |
+| root          |
+| ttt           |
+| ttt           |
+| ttt           |
+| root          |
+| root          |
+| mysql.session |
+| mysql.sys     |
+| pma           |
+| root          |
+| test          |
+| testingteam   |
+| testuser1     |
++---------------+
+
+___________________________________DELETE USER ___________________
+
+root@localhost:[mysql]> drop user 'testuser1'@'localhost';
+Query OK, 0 rows affected (0.06 sec)
+
+root@localhost:[mysql]> SELECT User from mysql.user;
++---------------+
+| User          |
++---------------+
+| access        |
+| appteam       |
+| cms           |
+| cportal       |
+| ebu_rep_db    |
+| gui           |
+| mcar          |
+| power         |
+| root          |
+| ttt           |
+| ttt           |
+| ttt           |
+| root          |
+| root          |
+| mysql.session |
+| mysql.sys     |
+| pma           |
+| root          |
+| test          |
+| testingteam   |
++---------------+
+20 rows in set (0.00 sec)
+
+root@localhost:[mysql]>
+
+
+_______________________GIVE PERMISSIONS TO USER _____________________
+
+root@localhost:[(none)]> grant CREATE on *.* to testuser@localhost;
+Query OK, 0 rows affected (0.00 sec)
+
+
+______________________VIEW ALL PERMISSIONS OF A USER_____________________
+
+testuser@localhost:[(none)]> show grants for testuser@localhost;
++-----------------------------------------------+
+| Grants for testuser@localhost                 |
++-----------------------------------------------+
+| GRANT CREATE ON *.* TO 'testuser'@'localhost' |
++-----------------------------------------------+
+1 row in set (0.00 sec)

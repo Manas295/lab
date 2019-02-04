@@ -1,0 +1,8 @@
+root@localhost:[loan]> delimiter //
+root@localhost:[loan]> create procedure mytestprocedure(phonenumber  bigint(20))
+    -> begin
+    -> select * from loan_running_Details where msisdn=phonenumber;
+    -> end //
+Query OK, 0 rows affected (0.06 sec)
+
+root@localhost:[loan]> call mytestprocedure(1111111111) //

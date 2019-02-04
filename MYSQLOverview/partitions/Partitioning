@@ -1,0 +1,10 @@
+Types of MySQL partitioning
+
+Following types of partitioning are available in MySQL 5.6 :
+
+RANGE Partitioning
+LIST Partitioning
+COLUMNS Partitioning
+HASH Partitioning
+KEY Partitioning
+Subpartitioning

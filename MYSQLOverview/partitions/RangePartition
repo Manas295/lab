@@ -1,0 +1,58 @@
+
+____________________ PARTITION WITH ALTER_______________________
+
+root@localhost:[loan]> alter table my_test_table partition by range(age)
+(
+partition kid values less than (11),
+partition teenager values less than (20),
+partition adult values less than (50),
+partition old_one values less than (MAXVALUE)
+);
+Query OK, 3 rows affected (0.08 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+root@localhost:[loan]> select partition_name from information_schema.partitions where table_name='my_test_table';
++----------------+
+| partition_name |
++----------------+
+| kid            |
+| teenager       |
+| adult          |
+| old_one        |
++----------------+
+4 rows in set (0.01 sec)
+
+root@localhost:[loan]>
+
+
+
+root@localhost:[loan]> select * from my_test_table;
++------+---------+--------+------+
+| col1 | col2    | name   | age  |
++------+---------+--------+------+
+| my   | name is | robin  |   10 |
+| my   | name is | Ram    |   15 |
+| my   | name is | Laxman |   25 |
++------+---------+--------+------+
+3 rows in set (0.00 sec)
+
+
+root@localhost:[loan]> select partition_name,table_rows from information_schema.partitions where table_name='my_test_table';
++----------------+------------+
+| partition_name | table_rows |
++----------------+------------+
+| kid            |          1 |
+| teenager       |          1 |
+| adult          |          1 |
+| old_one        |          0 |
++----------------+------------+
+4 rows in set (0.00 sec)
+
+
+root@localhost:[loan]> select * from my_test_table partition(kid);
++------+---------+-------+------+
+| col1 | col2    | name  | age  |
++------+---------+-------+------+
+| my   | name is | robin |   10 |
++------+---------+-------+------+
+1 row in set (0.00 sec)

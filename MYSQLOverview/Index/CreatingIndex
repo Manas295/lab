@@ -1,0 +1,30 @@
+
+________________________________________________________________________________________
+CREATE [UNIQUE|FULLTEXT|SPATIAL] INDEX index_name
+USING [BTREE | HASH | RTREE] 
+ON table_name (column_name [(length)] [ASC | DESC],...)
+____________________________________________________________________________________________
+
+
+root@localhost:[loan]> create unique index index_name
+    -> using btree
+    -> on my_test_table
+    -> (name);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+(NON UNIQUE)
+root@localhost:[loan]> create index my_index4 on my_test_table(name);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+________________________________________
+StorageEngine  | AllowableIndexTypes
+_______________|_________________________
+MyISAM         | BTREE, RTREE
+InnoDB         | BTREE
+MEMORY/HEAP    | HASH, BTREE
+NDB            | HASH
+_______________|_________________________

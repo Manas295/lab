@@ -1,0 +1,11 @@
+root@localhost:[loan]> select ramayancharacters.name,age,role,rollnum from student_data left join ramayancharacters on ramayancharacters.name=student_data.name left join my_test_table on ramayancharacters.name=my_test_table.name;
++------+------+--------+---------+
+| name | age  | role   | rollnum |
++------+------+--------+---------+
+| Ram  |   15 | Hero   |       2 |
+| Sita | NULL | Heroin |       3 |
+| NULL | NULL | NULL   |       5 |
+| NULL | NULL | NULL   |       1 |
+| NULL | NULL | NULL   |       4 |
++------+------+--------+---------+
+5 rows in set (0.00 sec)

@@ -1,0 +1,20 @@
+root@localhost:[loan]> show index from my_test_table;
++---------------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table         | Non_unique | Key_name   | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++---------------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| my_test_table |          0 | my_index_1 |            1 | name        | A         |           3 |     NULL | NULL   | YES  | BTREE      |         |               |
+| my_test_table |          0 | my_index_2 |            1 | name        | A         |           3 |     NULL | NULL   | YES  | BTREE      |         |               |
++---------------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+
+
+root@localhost:[loan]> show index from my_test_table;
++---------------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table         | Non_unique | Key_name   | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++---------------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| my_test_table |          0 | my_index_1 |            1 | name        | A         |           3 |     NULL | NULL   | YES  | BTREE      |         |               |
+| my_test_table |          0 | my_index_2 |            1 | name        | A         |           3 |     NULL | NULL   | YES  | BTREE      |         |               |
+| my_test_table |          1 | my_index4  |            1 | name        | A         |           3 |     NULL | NULL   | YES  | BTREE      |         |               |
++---------------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+
+
+my_index4 is non-unique index

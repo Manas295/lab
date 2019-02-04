@@ -1,0 +1,32 @@
+
+root@localhost:[loan]> select * from my_test_table;
++------+---------+--------+
+| col1 | col2    | name   |
++------+---------+--------+
+| my   | name is | robin  |
+| my   | name is | Ram    |
+| my   | name is | Laxman |
++------+---------+--------+
+
+
+root@localhost:[loan]> select * from ramayancharacters;
++--------+---------+
+| name   | Role    |
++--------+---------+
+| Ram    | Hero    |
+| Sita   | Heroin  |
+| Laxman | Hero    |
+| Ravan  | Villain |
++--------+---------+
+
+
+
+root@localhost:[loan]> select * from my_test_table left join ramayancharacters on ramayancharacters.name=my_test_table.name;
++------+---------+--------+--------+------+
+| col1 | col2    | name   | name   | Role |
++------+---------+--------+--------+------+
+| my   | name is | Ram    | Ram    | Hero |
+| my   | name is | Laxman | Laxman | Hero |
+| my   | name is | robin  | NULL   | NULL |
++------+---------+--------+--------+------+
+

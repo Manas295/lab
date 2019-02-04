@@ -1,0 +1,85 @@
+root@localhost:[loan]> create procedure mytestprocedure(IN phonenumber  bigint(20),OUT sometid varchar(30),INOUT counter int(4))
+    -> begin
+    -> select tid into sometid from loan_running_details where msisdn=phonenumber;
+    -> set counter=counter+1;
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
+
+
+
+
+
+
+ -------------------------------counter set to 1----------------------------------------------------------------------------------------
+ 
+root@localhost:[loan]> set @procedureCallingCounter=1//
+Query OK, 0 rows affected (0.00 sec)
+
+root@localhost:[loan]> call mytestprocedure(1111111111,@recordtid,@procedureCallingCounter)//
+root@localhost:[loan]>
+root@localhost:[loan]> select @recordtid,@procedureCallingCounter//
++----------------+--------------------------+
+| @recordtid     | @procedureCallingCounter |
++----------------+--------------------------+
+| 12123123123123 |                        1 |
++----------------+--------------------------+
+1 row in set (0.00 sec)
+
+
+
+
+ 
+-----------------------------------counter increased on calling procedure (INOUT mode)---------------------------------------
+
+root@localhost:[loan]> call mytestprocedure(1111111111,@recordtid,@procedureCallingCounter)//
+Query OK, 1 row affected (0.00 sec)
+
+root@localhost:[loan]> select @recordtid,@procedureCallingCounter//
++----------------+--------------------------+
+| @recordtid     | @procedureCallingCounter |
++----------------+--------------------------+
+| 12123123123123 |                        2 |
++----------------+--------------------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+-----------------------------------counter increased on calling procedure (INOUT mode)----------------------------------------------------------
+
+
+root@localhost:[loan]> call mytestprocedure(1111111111,@recordtid,@procedureCallingCounter)//
+Query OK, 1 row affected (0.00 sec)
+
+root@localhost:[loan]> select @recordtid,@procedureCallingCounter//
++----------------+--------------------------+
+| @recordtid     | @procedureCallingCounter |
++----------------+--------------------------+
+| 12123123123123 |                        3 |
++----------------+--------------------------+
+1 row in set (0.00 sec)
+
+root@localhost:[loan]>
+
+_______________________________________MODES_____________________________
+
+
+IN –    is the default mode. When you define an IN parameter in a stored procedure, 
+        the calling program has to pass an argument to the stored procedure. In addition, 
+        the value of an IN parameter is protected. 
+        It means that even the value of the IN parameter is changed inside the stored procedure, 
+        its original value is retained after the stored procedure ends. In other words, 
+        the stored procedure only works on the copy of the IN parameter.
+    
+OUT –   the value of an OUT parameter can be changed inside the stored procedure 
+        and its new value is passed back to the calling program. 
+        Notice that the stored procedure cannot access the initial value 
+        of the OUT parameter when it starts.
+        
+INOUT – an INOUT  parameter is the combination of IN  and OUT  parameters. 
+        It means that the calling program may pass the argument, 
+        and the stored procedure can modify the INOUT parameter and 
+        pass the new value back to the calling program.

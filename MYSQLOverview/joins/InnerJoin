@@ -1,0 +1,50 @@
+INNER JOINS return all rows from multiple tables where the join condition is met.
+Select the common part from both the tables
+
+
+root@localhost:[loan]> select * from my_test_table;
++------+---------+--------+
+| col1 | col2    | name   |
++------+---------+--------+
+| my   | name is | robin  |
+| my   | name is | Ram    |
+| my   | name is | Laxman |
++------+---------+--------+
+3 rows in set (0.00 sec)
+
+
+root@localhost:[loan]> select * from ramayancharacters
++--------+---------+
+| name   | Role    |
++--------+---------+
+| Ram    | Hero    |
+| Sita   | Heroin  |
+| Laxman | Hero    |
+| Ravan  | Villain |
++--------+---------+
+4 rows in set (0.00 sec)
+
+
+@localhost:[loan]> select * from my_test_table inner join ramayancharacters on my_test_table.name=ramayancharacters.name;
++------+---------+--------+--------+------+
+| col1 | col2    | name   | name   | Role |
++------+---------+--------+--------+------+
+| my   | name is | Ram    | Ram    | Hero |
+| my   | name is | Laxman | Laxman | Hero |
++------+---------+--------+--------+------+
+
+
+________________________________________________________________________________________________
+
+
+
+root@localhost:[loan]> select col2,Role from my_test_table inner join ramayancharacters on ramayancharacters.name=my_test_table.name;
++---------+------+
+| col2    | Role |
++---------+------+
+| name is | Hero |
+| name is | Hero |
++---------+------+
+2 rows in set (0.00 sec)
+
+

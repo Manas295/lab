@@ -1,0 +1,11 @@
+root@localhost:[loan]> create procedure variableTestProcedure()
+    -> begin
+    -> declare loan_status int;
+    -> select loanstatus into loan_status from loan_running_details where msisdn=1111111111;
+    -> if loan_status >0 then
+    -> update loan_running_details set loanstatus=0 where msisdn=1111111111;
+    -> end if;
+    -> end//
+Query OK, 0 rows affected (0.03 sec)
+
+root@localhost:[loan]>

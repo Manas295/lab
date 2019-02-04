@@ -1,0 +1,8 @@
+MySQL JOINS are used to retrieve data from multiple tables. 
+A MySQL JOIN is performed whenever two or more tables are joined in a SQL statement.
+
+There are different types of MySQL joins:
+
+MySQL INNER JOIN (or sometimes called simple join)
+MySQL LEFT OUTER JOIN (or sometimes called LEFT JOIN)
+MySQL RIGHT OUTER JOIN (or sometimes called RIGHT JOIN)

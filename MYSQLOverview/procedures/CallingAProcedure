@@ -1,0 +1,8 @@
+
+call <procedure Name>;
+
+---------------------------------------------------------
+root@localhost:[loan]> call myfirstprocedure();
+Query OK, 1 row affected (0.00 sec)
+
+root@localhost:[loan]>

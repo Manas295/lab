@@ -1,0 +1,23 @@
+SELECT * FROM information_schema.partitions WHERE TABLE_SCHEMA='your_database' 
+AND TABLE_NAME = 'your_table' 
+AND PARTITION_NAME IS NOT NULL
+
+___________________________________________________________________________
+NOTE:: INFORMATION_SCHEMA 
+1.  information_schema is the database where the information about all the other databases is kept, 
+    for example names of a database or a table, the data type of columns, access privileges, etc.
+
+2.  The MySQL server automatically populates the tables in the information_schema.
+
+3.  You can query it, but you cannot change its structure or modify its data.
+
+
+Eg.
+
+
+root@localhost:[loan]> select * from information_schema.partitions where table_schema='loan' and table_name='my_test_table';
++---------------+--------------+---------------+----------------+-------------------+----------------------------+-------------------------------+------------------+---------------------+----------------------+-------------------------+-----------------------+------------+----------------+-------------+-----------------+--------------+-----------+---------------------+-------------+------------+----------+-------------------+-----------+-----------------+
+| TABLE_CATALOG | TABLE_SCHEMA | TABLE_NAME    | PARTITION_NAME | SUBPARTITION_NAME | PARTITION_ORDINAL_POSITION | SUBPARTITION_ORDINAL_POSITION | PARTITION_METHOD | SUBPARTITION_METHOD | PARTITION_EXPRESSION | SUBPARTITION_EXPRESSION | PARTITION_DESCRIPTION | TABLE_ROWS | AVG_ROW_LENGTH | DATA_LENGTH | MAX_DATA_LENGTH | INDEX_LENGTH | DATA_FREE | CREATE_TIME         | UPDATE_TIME | CHECK_TIME | CHECKSUM | PARTITION_COMMENT | NODEGROUP | TABLESPACE_NAME |
++---------------+--------------+---------------+----------------+-------------------+----------------------------+-------------------------------+------------------+---------------------+----------------------+-------------------------+-----------------------+------------+----------------+-------------+-----------------+--------------+-----------+---------------------+-------------+------------+----------+-------------------+-----------+-----------------+
+| def           | loan         | my_test_table | NULL           | NULL              |                       NULL |                          NULL | NULL             | NULL                | NULL                 | NULL                    | NULL                  |          3 |           5461 |       16384 |            NULL |            0 |         0 | 2018-06-26 19:43:03 | NULL        | NULL       |     NULL |                   |           | NULL            |
++---------------+--------------+---------------+----------------+-------------------+----------------------------+-------------------------------+------------------+---------------------+----------------------+-------------------------+-----------------------+------------+----------------+-------------+-----------------+--------------+-----------+---------------------+-------------+------------+----------+-------------------+-----------+-----------------+

@@ -1,0 +1,53 @@
+
+DECLARING VARIABLES
+_____________________________________
+
+root@localhost:[loan]> delimiter //
+root@localhost:[loan]> create procedure testVariables()
+    -> begin
+    -> declare x int default 0;
+    -> declare someVariable varchar(10);
+    -> declare somevariable2 varchar(10) default 'piyush';
+    -> end //
+Query OK, 0 rows affected (0.00 sec)
+
+root@localhost:[loan]>
+
+
+
+DECLARE variable_name datatype(size) DEFAULT default_value;
+
+
+1.  First, you specify the variable name after the DECLARE keyword. 
+    The variable name must follow the naming rules of MySQL table column names.
+    
+2.  Second, you specify the data type of the variable and its size. 
+    A variable can have any MySQL data types such as INT, VARCHAR , and DATETIME.
+    
+3.  Third, when you declare a variable, its initial value is NULL. 
+    You can assign the variable a default value using the DEFAULTkeyword.
+
+4.  A variable that begins with the @ sign is session variable. 
+    It is available and accessible until the session ends.
+
+
+
+VARIABLE SCOPE
+
+1.  f you declare a variable inside a stored procedure, 
+    it will be out of scope when the END statement of stored procedure reached.
+
+2.  You can declare two or more variables with the same name in different scopes 
+    because a variable is only effective in its own scope.
+    
+3.  A variable that begins with the @ sign is session variable. 
+    It is available and accessible until the session ends.
+
+
+
+
+
+eg. 
+
+DECLARE total_sale INT DEFAULT 0;
+DECLARE x, y INT DEFAULT 0;

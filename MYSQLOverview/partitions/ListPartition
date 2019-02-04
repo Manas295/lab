@@ -1,0 +1,55 @@
+root@localhost:[loan]> create table student_data (name varchar(10),rollnum int) 
+partition by list (rollnum)( 
+partition passstudents values in(2,3,5), 
+partition failstudent values in (1,4) 
+);
+Query OK, 0 rows affected (0.02 sec)
+
+root@localhost:[loan]>
+
+
+root@localhost:[loan]> insert into student_data values('shyam',1);
+Query OK, 1 row affected (0.00 sec)
+
+root@localhost:[loan]> insert into student_data values('ram',2);
+Query OK, 1 row affected (0.00 sec)
+
+root@localhost:[loan]> insert into student_data values('sita',3);
+Query OK, 1 row affected (0.00 sec)
+
+root@localhost:[loan]> insert into student_data values('gita',4);
+Query OK, 1 row affected (0.01 sec)
+
+root@localhost:[loan]> insert into student_data values('rahul',5);
+Query OK, 1 row affected (0.00 sec)
+
+
+
+root@localhost:[loan]> select * from information_schema.partitions where table_schema='loan' and table_name='student_data';
++---------------+--------------+--------------+----------------+-------------------+----------------------------+-------------------------------+------------------+---------------------+----------------------+-------------------------+-----------------------+------------+----------------+-------------+-----------------+--------------+-----------+---------------------+---------------------+------------+----------+-------------------+-----------+-----------------+
+| TABLE_CATALOG | TABLE_SCHEMA | TABLE_NAME   | PARTITION_NAME | SUBPARTITION_NAME | PARTITION_ORDINAL_POSITION | SUBPARTITION_ORDINAL_POSITION | PARTITION_METHOD | SUBPARTITION_METHOD | PARTITION_EXPRESSION | SUBPARTITION_EXPRESSION | PARTITION_DESCRIPTION | TABLE_ROWS | AVG_ROW_LENGTH | DATA_LENGTH | MAX_DATA_LENGTH | INDEX_LENGTH | DATA_FREE | CREATE_TIME         | UPDATE_TIME         | CHECK_TIME | CHECKSUM | PARTITION_COMMENT | NODEGROUP | TABLESPACE_NAME |
++---------------+--------------+--------------+----------------+-------------------+----------------------------+-------------------------------+------------------+---------------------+----------------------+-------------------------+-----------------------+------------+----------------+-------------+-----------------+--------------+-----------+---------------------+---------------------+------------+----------+-------------------+-----------+-----------------+
+| def           | loan         | student_data | passstudents   | NULL              |                          1 |                          NULL | LIST             | NULL                | rollnum              | NULL                    | 2,3,5                 |          3 |           5461 |       16384 |            NULL |            0 |         0 | 2018-07-02 19:43:56 | 2018-07-02 19:45:40 | NULL       |     NULL |                   | default   | NULL            |
+| def           | loan         | student_data | failstudent    | NULL              |                          2 |                          NULL | LIST             | NULL                | rollnum              | NULL                    | 1,4                   |          2 |           8192 |       16384 |            NULL |            0 |         0 | 2018-07-02 19:43:56 | 2018-07-02 19:45:33 | NULL       |     NULL |                   | default   | NULL            |
++---------------+--------------+--------------+----------------+-------------------+----------------------------+-------------------------------+------------------+---------------------+----------------------+-------------------------+-----------------------+------------+----------------+-------------+-----------------+--------------+-----------+---------------------+---------------------+------------+----------+-------------------+-----------+-----------------+
+
+
+
+root@localhost:[loan]> select * from student_data partition(passstudents);
++-------+---------+
+| name  | rollnum |
++-------+---------+
+| ram   |       2 |
+| sita  |       3 |
+| rahul |       5 |
++-------+---------+
+3 rows in set (0.00 sec)
+
+root@localhost:[loan]> select * from student_data partition(failstudent);
++-------+---------+
+| name  | rollnum |
++-------+---------+
+| shyam |       1 |
+| gita  |       4 |
++-------+---------+
+2 rows in set (0.00 sec)
