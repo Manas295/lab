@@ -1,0 +1,43 @@
+1. GET REQUEST: http://localhost:8080/products
+
+OUTPUT 
+[
+    {
+        "id": "5c3464d853e60d041031e14c",
+        "name": "Big Latte",
+        "price": 2.99
+    },
+    {
+        "id": "5c3464d853e60d041031e14e",
+        "name": "Green Tea",
+        "price": 1.99
+    },
+    {
+        "id": "5c3464d853e60d041031e14d",
+        "name": "Big Decaf",
+        "price": 2.49
+    },
+    {
+        "id": "5c3465d853e60d041031e14f",
+        "name": "Black Coffee",
+        "price": 9.99
+    }
+]
+
+2. POST REQUEST: http://localhost:8080/products
+ {
+        "name": "Black Coffee",
+        "price": 9.99
+ }
+ 
+ 
+3. PUT REQUEST: http://localhost:8080/products/5c3464d853e60d041031e14c
+{
+    "name": "Big Latte",
+    "price": 5.99
+}
+
+
+4. DELETE REQUEST: http://localhost:8080/products/5c3464d853e60d041031e14c
+
+

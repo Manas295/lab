@@ -1,0 +1,74 @@
+SPRING BOOT CRUD OPERATIONS URLS
+
+1. Post Request -> Create a Topic : http://localhost:8080/topics
+
+{
+    "id": "Functional Interface",
+    "name": "Java 8 Functional Interface",
+    "description": "FI Description "
+}
+
+{
+        "id": "Stream API",
+        "name": "Java 8 Stream API",
+        "description": "Stream API Description"
+}
+
+{
+        "id": "Lambda Expressions",
+        "name": "Java 8 Lambda Expressions",
+        "description": "Lambda Expressions Description "
+}
+
+2. Get Request : http://localhost:8080/topics
+
+3. Get Request (Particular Topic) : http://localhost:8080/topics/Stream API  (<TOPIC-NAME>)
+
+4. Delete Request: http://localhost:8080/topics/<Topic-Name>
+
+5. Update Request : http://localhost:8080/topics/Stream API
+ {
+        "id": "Stream API",
+        "name": "Java 8 Stream API Updated",
+        "description": "Stream API Description"
+ }
+
+
+6. Post Request -> Create a Course under a topic : http://localhost:8080/topics/Stream API/courses     (Stream API -> Topic Name for Which we would creating a course)
+
+ {
+        "id": "Java 8",
+        "name": "Java 8 Features",
+        "description": "Java 8 Description "
+ }
+
+
+	http://localhost:8080/topics/Functional Interface/courses
+	{
+        "id": "Java FI",
+        "name": "FI Features",
+        "description": "Java FI Description "
+	}
+	
+	http://localhost:8080/topics/Lambda Expressions/courses
+	{
+        "id": "Functional Programming",
+        "name": "Functional Features",
+        "description": "Java Functional Programming Description "
+    }
+
+7. Update Request -> Update a course for a topic by giving course Id : http://localhost:8080/topics/Stream API/courses/Java 8
+
+ {
+        "id": "Java 8",
+        "name": "Java 8 Features Updated",
+        "description": "Java 8 Description "
+ }
+
+
+8. Get Request -> Course associated with a topic -> http://localhost:8080/topics/Stream API/courses
+
+
+9. Delete Request -> Course Deletion  -> http://localhost:8080/topics/Stream API/courses/Java 8   <Course ID>-> Java 8 & <Topic ID>-> Stream API
+
+			
