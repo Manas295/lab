@@ -2,6 +2,8 @@ package com.kafka.springbootkafkaconsumer.listener;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
+import com.kafka.springbootkafkaconsumer.model.User;
+
 @Service
 public class KafkaConsumer {
 
@@ -11,10 +13,10 @@ public class KafkaConsumer {
     }
 
 
-   /* @KafkaListener(topics = "kafka-Json", groupId = "group_json",
+    @KafkaListener(topics = "kafka-Json", groupId = "group_json",
             containerFactory = "userKafkaListenerFactory")
     public void consumeJson(User user) {
         System.out.println("Consumed JSON Message: " + user);
-    }*/
+    }
 
 }

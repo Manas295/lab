@@ -5,7 +5,12 @@ public class User {
     private String dept;
     private Long salary;
     
-    public User(String name, String dept, Long salary) {
+    
+    
+    public User() {
+    }
+
+	public User(String name, String dept, Long salary) {
 		super();
 		this.name = name;
 		this.dept = dept;
@@ -36,15 +41,7 @@ public class User {
 		this.salary = salary;
 	}
 
-	public User() {
-    }
-
-    public User(String name, String dept) {
-
-        this.name = name;
-        this.dept = dept;
-    }
-
+	
     
     @Override
     public String toString() {

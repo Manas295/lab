@@ -17,6 +17,10 @@ public class UserResource {
 	@Autowired(required=true)
 	private KafkaTemplate kafkaTemplate;
 	
+	/*
+	 * @Autowired(required=true) private KafkaTemplate<String,User>
+	 * kafkaJsonTemplate;
+	 */	
 	@Value(value = "${message.topic.name.json}")
 	private String TOPICFORJSON;
 
@@ -25,14 +29,26 @@ public class UserResource {
 
 	
 	@GetMapping("/publish/{name}/{technology}/{salary}")
-	public String postforJson(@PathVariable("name") final String name,@PathVariable("technology") final String tech,@PathVariable("salary") final String salary)
+	public String postAsString(@PathVariable("name") final String name,@PathVariable("technology") final String tech,@PathVariable("salary") final String salary)
 	{
 		
 		kafkaTemplate.send(TOPICFORSTRING, new User(name,tech,Long.valueOf(salary)).toString());
 		
-		return "Json Published successfully";
+		return "Published successfully As String";
 	}
 	
+	
+	/*
+	 * @GetMapping("/publishJson/{name}/{technology}/{salary}") public String
+	 * postAsJson(@PathVariable("name") final String
+	 * name,@PathVariable("technology") final String tech,@PathVariable("salary")
+	 * final String salary) {
+	 * 
+	 * kafkaJsonTemplate.send(TOPICFORJSON, new
+	 * User(name,tech,Long.valueOf(salary)));
+	 * 
+	 * return "Json Published successfully"; }
+	 */	
 	
 	
 }
