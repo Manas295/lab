@@ -15,12 +15,12 @@ import com.kafka.springbootkakfaproducer.model.User;
 public class UserResource {
 
 	@Autowired(required=true)
-	private KafkaTemplate kafkaTemplate;
+	private KafkaTemplate<String,String> kafkaTemplate;
 	
-	/*
-	 * @Autowired(required=true) private KafkaTemplate<String,User>
-	 * kafkaJsonTemplate;
-	 */	
+	
+	  @Autowired(required=true) private KafkaTemplate<String,User>
+	  kafkaJsonTemplate;
+	 	
 	@Value(value = "${message.topic.name.json}")
 	private String TOPICFORJSON;
 
@@ -28,27 +28,25 @@ public class UserResource {
 	private String TOPICFORSTRING;
 
 	
-	@GetMapping("/publish/{name}/{technology}/{salary}")
-	public String postAsString(@PathVariable("name") final String name,@PathVariable("technology") final String tech,@PathVariable("salary") final String salary)
+	@GetMapping("/publish/{name}/{technology}")
+	public String postAsString(@PathVariable("name") final String name,@PathVariable("technology") final String tech)
 	{
 		
-		kafkaTemplate.send(TOPICFORSTRING, new User(name,tech,Long.valueOf(salary)).toString());
+		kafkaTemplate.send(TOPICFORSTRING, new User(name,tech).toString());
 		
 		return "Published successfully As String";
 	}
 	
 	
-	/*
-	 * @GetMapping("/publishJson/{name}/{technology}/{salary}") public String
-	 * postAsJson(@PathVariable("name") final String
-	 * name,@PathVariable("technology") final String tech,@PathVariable("salary")
-	 * final String salary) {
-	 * 
-	 * kafkaJsonTemplate.send(TOPICFORJSON, new
-	 * User(name,tech,Long.valueOf(salary)));
-	 * 
-	 * return "Json Published successfully"; }
-	 */	
+	
+	  @GetMapping("/publishJson/{name}/{field}") public String
+	  postAsJson(@PathVariable("name") final String
+	  name,@PathVariable("field") final String tech) {
+	  kafkaJsonTemplate.send(TOPICFORJSON, new
+	  User(name,tech));
+	  
+	  return "Json Published successfully"; }
+	 	
 	
 	
 }
