@@ -10,6 +10,14 @@ public class MonoTest {
             .log()
             .subscribe();
     }
+    
+    /*OUTPUT : 
+     * [ INFO] (main) | onSubscribe([Synchronous Fuseable] Operators.ScalarSubscription)
+	   [ INFO] (main) | request(unbounded)
+	   [ INFO] (main) | onNext(A)
+	   [ INFO] (main) | onComplete()
+     * 
+     */
 
     @Test
     void monoWithConsumer() {
@@ -17,6 +25,14 @@ public class MonoTest {
                 .log()
                 .subscribe(s -> System.out.println(s));
     }
+    
+    /*OUTPUT:
+     * [ INFO] (main) | onSubscribe([Synchronous Fuseable] Operators.ScalarSubscription)
+	   [ INFO] (main) | request(unbounded)
+	   [ INFO] (main) | onNext(A)
+	   A
+	   [ INFO] (main) | onComplete()
+     */
 
     @Test
     void monoWithDoOn() {
@@ -27,6 +43,17 @@ public class MonoTest {
                 .doOnSuccess(complete -> System.out.println("Complete: " + complete))
                 .subscribe(System.out::println);
     }
+    /*OUTPUT:
+     * [ INFO] (main) | onSubscribe([Synchronous Fuseable] Operators.ScalarSubscription)
+	   Subscribed: reactor.core.publisher.FluxPeekFuseable$PeekFuseableConditionalSubscriber@f6c48ac
+	   Request: 9223372036854775807
+	   [ INFO] (main) | request(unbounded)
+       [ INFO] (main) | onNext(A)
+       Complete: A
+       A
+       [ INFO] (main) | onComplete()
+     * 
+     */
 
     @Test
     void emptyMono() {
@@ -34,6 +61,11 @@ public class MonoTest {
                 .log()
                 .subscribe(System.out::println);
     }
+    /*OUTPUT:
+     * [ INFO] (main) onSubscribe([Fuseable] Operators.EmptySubscription)
+	   [ INFO] (main) request(unbounded)
+	   [ INFO] (main) onComplete()
+     */
 
     @Test
     void emptyCompleteConsumerMono() {
@@ -44,6 +76,12 @@ public class MonoTest {
                         () -> System.out.println("Done")
                 );
     }
+    /*OUTPUT:
+     * [ INFO] (main) onSubscribe([Fuseable] Operators.EmptySubscription)
+ 	   [ INFO] (main) request(unbounded)
+	   [ INFO] (main) onComplete()
+	   Done
+     */
 
     @Test
     void errorRuntimeExceptionMono() {
@@ -51,6 +89,14 @@ public class MonoTest {
                 .log()
                 .subscribe();
     }
+    /*OUTPUT:
+     *[ INFO] (main) onSubscribe([Fuseable] Operators.EmptySubscription)
+	  [ INFO] (main) request(unbounded)
+	  [ERROR] (main) onError(java.lang.RuntimeException)
+	  [ERROR] (main)  - java.lang.RuntimeException
+	  java.lang.RuntimeException
+     * 
+     */
 
     @Test
     void errorExceptionMono() {
@@ -58,6 +104,14 @@ public class MonoTest {
                 .log()
                 .subscribe();
     }
+    /*OUTPUT:
+     *[ INFO] (main) onSubscribe([Fuseable] Operators.EmptySubscription)
+	  [ INFO] (main) request(unbounded)
+	  [ERROR] (main) onError(java.lang.Exception)
+	  [ERROR] (main)  - java.lang.Exception
+	  java.lang.Exception
+     * 
+     */
 
     @Test
     void errorConsumerMono() {
@@ -67,6 +121,15 @@ public class MonoTest {
                         e -> System.out.println("Error: " + e)
                 );
     }
+    /*[ INFO] (main) onSubscribe([Fuseable] Operators.EmptySubscription)
+	  [ INFO] (main) request(unbounded)
+	  [ERROR] (main) onError(java.lang.Exception)
+	  [ERROR] (main)  - java.lang.Exception
+	  java.lang.Exception
+	  .........
+	  Error: java.lang.Exception
+     * 
+     */
 
     @Test
     void errorDoOnErrorMono() {
@@ -75,6 +138,14 @@ public class MonoTest {
                 .log()
                 .subscribe();
     }
+    /*OUTPUT
+     * [ INFO] (main) onSubscribe(FluxPeek.PeekSubscriber)
+	   [ INFO] (main) request(unbounded)
+	   Error: java.lang.Exception
+	   [ERROR] (main) onError(java.lang.Exception)
+       [ERROR] (main)  - java.lang.Exception
+       java.lang.Exception
+     */
 
     @Test
     void errorOnErrorResumeMono() {
@@ -86,6 +157,13 @@ public class MonoTest {
                 .log()
                 .subscribe();
     }
+    /*OUTPUT
+     * [ INFO] (main) onSubscribe(FluxOnErrorResume.ResumeSubscriber)
+	   [ INFO] (main) request(unbounded)
+       Caught: java.lang.Exception
+       [ INFO] (main) onNext(B)
+       [ INFO] (main) onComplete()
+     */
 
     @Test
     void errorOnErrorReturnMono() {
@@ -94,4 +172,10 @@ public class MonoTest {
                 .log()
                 .subscribe();
     }
+    /*OUTPUT
+     * [ INFO] (main) onSubscribe(FluxOnErrorResume.ResumeSubscriber)
+	   [ INFO] (main) request(unbounded)
+	   [ INFO] (main) onNext(B)
+	   [ INFO] (main) onComplete()
+     */
 }
