@@ -47,12 +47,16 @@ public class StreamZero {
 				  Stream.generate(() -> "element").limit(10);
 		Stream.generate(() -> "element").limit(10).forEach(System.out::println);
 */		
-		int reducedParams = Stream.of(1, 2, 3)
+		int reducedParams = Stream.of(1, 2, 3).parallel()
 				  .reduce(10, (a, b) -> a + b, (a, b) -> {
 				   System.out.println("combiner was called");
 				     return a + b;
 				  });
 		System.out.println(reducedParams);
+		
+		int reduceSum = Stream.of(1,2,3,4)
+				.reduce(10,(a,b)->a+b);
+		System.out.println("------"+reduceSum);
 	}
 }
 
