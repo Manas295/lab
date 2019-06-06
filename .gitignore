@@ -18,6 +18,9 @@ local.properties
 # Log file
 *.log
 
+#GITIGNORE
+*.gitignore
+
 # Maven
 target/
 
