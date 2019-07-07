@@ -20,6 +20,7 @@ local.properties
 
 #GITIGNORE
 *.gitignore
+*.MANIFEST.MF
 
 # Maven
 target/
