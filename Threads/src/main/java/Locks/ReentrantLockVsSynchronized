@@ -1,0 +1,65 @@
+1. When you use a synchronized block or method you just need to write synchronized keyword (and provide associated object) 
+   acquiring lock and releasing it is done implicitly. With ReentrantLock acquiring and releasing lock is done by 
+   user using lock() and unlock() methods.
+
+2. Prescribed way to use RentrantLock in Java is to use a try-finally block. Call to lock should immediately be followed with
+   a try block and lock should be released in finally block.That way lock will be released even if exception is thrown in 
+   critical section code.
+   
+   lock.lock();
+	try {
+    
+    //…method body
+      
+	}finally {
+    lock.unlock();
+	}
+ 
+  With Synchronized there is no such compulsion as acquiring and releasing is done implicitly.
+  Synchronized(myObj){
+    …
+    …
+ } 
+ 
+3. Synchronized keyword forces all lock acquisitions and releases to occur in a block-structured way which means when 
+   multiple locks are acquired they must be released in the opposite order, and all locks must be released in the same 
+   lexical scope in which they were acquired. 
+   
+   ReentrantLock provides more flexibility, it allows a lock to be acquired and released in different scopes, and 
+   allowing multiple locks to be acquired and released in any order.
+   
+   
+   With ReentrantLock the below code is possible but not with synchronized.
+   private ReentrantLock lock;
+	public void methodA() {
+			  ...
+	  lock.lock();
+	  ...
+	}
+	
+	public void methodB() {
+	  ...
+	  lock.unlock();
+	  ...
+	}
+
+
+4. ReentrantLock provides additional functionality over the use of synchronized methods and statements by providing an option 
+   for fairness, providing a non-blocking attempt to acquire a lock (tryLock()), an attempt to acquire the lock that can be
+   interrupted (lockInterruptibly(), and an attempt to acquire the lock that can timeout (tryLock(long, TimeUnit)).
+   
+	Fairness-ReentrantLock class in Java has one constructor which takes boolean value as an argument. 
+	That lets you choose whether you want a fair or an unfair lock depending upon whether the boolean value is true or false. 
+	A fair lock is one where the threads acquire the lock in the same order they asked for it; whereas in case of an unfair 
+	lock a thread can sometimes acquire a lock before another thread that asked for it first. With Synchronized there is no such 
+    option.
+		   
+	Lock interruptibly- ReentrantLock provides a method lockInterruptibly
+	public void lockInterruptibly() throws InterruptedException Where the thread acquires a lock if it is not interrupted.
+	Ability to check if the lock is being held- ReentrantLock provides ability to check if the lock is already being 
+	held using tryLock() method. This provides a non-blocking attempt to acquire a lock for a thread.
+	tryLock()- Acquires the lock only if it is not held by another thread at the time of invocation.
+
+    tryLock(long timeout, TimeUnit unit)- Acquires the lock if it is not held by another thread within the given 
+    waiting time and the current thread has not been interrupted.	
+	
