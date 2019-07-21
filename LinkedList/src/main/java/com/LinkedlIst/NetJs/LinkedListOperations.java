@@ -1,3 +1,4 @@
+package com.LinkedlIst.NetJs;
 
 class Node{
     //data
