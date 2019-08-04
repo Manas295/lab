@@ -1,5 +1,8 @@
 package com.selectionsort;
 
+/*
+ * Time Complexity: O(n2) as there are two nested loops.
+ */
 public class SelectionSort {
 	void printArray(int arr[])
 	{
@@ -11,24 +14,25 @@ public class SelectionSort {
 	public static void main(String[] args) {
 		SelectionSort ob = new SelectionSort();
 		int arr[] = {64,25,12,22,11};
+		System.out.println("Array before sorting");
+		ob.printArray(arr);
 		ob.sort(arr);
 		System.out.println("Sorted array");
 		ob.printArray(arr);
 	}
 	public  void sort(int[] arr) {
-		int n = arr.length;
-		int temp;
-		for(int i=0;i<n;i++)
-		{
-			int index = i;
-			for(int j=i+1;j<n;j++)
-			{
-				if(arr[j]<arr[index]) {
-				    temp    = arr[i];
-				    arr[i]  = arr[j];
-				    arr[j]  = temp;
-				}    
-			}	
+		
+		int len = arr.length;
+		for(int i = 0 ; i<len-1 ; i++) {
+			
+			int min_idx = i;
+			for(int j = i+1 ; j<len ; j++) {
+				if(arr[j] < arr[min_idx])
+					min_idx = j;
+			}
+			int temp = arr[min_idx];
+			arr[min_idx] = arr[i];
+			arr[i] = temp;
 		}
 	}
 }
