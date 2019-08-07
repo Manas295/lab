@@ -15,7 +15,9 @@ public class SemConProdDemo {
 //Shared class used by threads
 class Shared{
 	int i;
-	// 2 semaphores 
+	// 2 semaphores
+	// sc initialized with 0 permits 
+    // to ensure put() executes first
 	Semaphore sc = new Semaphore(0);
 	Semaphore sp = new Semaphore(1);
 

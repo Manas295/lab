@@ -1,12 +1,15 @@
-package com.test.piyush.TreeMap;
+package com.test.TreeMap;
 
 import java.util.Comparator;
 import java.util.TreeMap;
 
 public class SortTreeMapByKeys {
 	public static void main(String[] args) {
-		TreeMap<Employee,String> records	= new TreeMap<Employee,String>(new MyComparator());
-		//TreeMap<Employee,String> records	= new TreeMap<Employee,String>();
+		//TreeMap<Employee,String> records	= new TreeMap<Employee,String>(new MyComparator());
+	   //	TreeMap<Employee,String> records	= new TreeMap<Employee,String>();
+
+		//JAVA 8 Comparator.comparing
+		TreeMap<Employee,String> records	= new TreeMap<Employee,String>(Comparator.comparing(Employee::getId));
 		records.put(new Employee("Ramesh",5),"DEV");
 		records.put(new Employee("Aman",1),"DEV");
 		records.put(new Employee("Zayan",2),"DEV");
@@ -80,6 +83,23 @@ class Employee{
 		this.name	= name;
 		this.id		= id;
 	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Override
 	public String toString() {
 		return ""+this.name + " " + this.id;

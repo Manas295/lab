@@ -1,4 +1,4 @@
-package com.piyush.test.unmodifiableCollectionDemo;
+package com.test.unmodifiableCollectionDemo;
 
 import java.util.Collections;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.test.piyush.TreeMap;
+package com.test.TreeMap;
 
 public class PackageInfo {
 
