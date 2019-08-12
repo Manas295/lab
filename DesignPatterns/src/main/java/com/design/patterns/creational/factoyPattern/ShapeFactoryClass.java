@@ -14,7 +14,7 @@ public class ShapeFactoryClass {
 	}
 	
 	// This is a factory method.
-	public Shape getShapeObjects(String shapeName) {
+/*	public Shape getShapeObjects(String shapeName) {
 		if(shapeName.equalsIgnoreCase("Circle")) {
 			return new Circle();
 		}else if(shapeName.equalsIgnoreCase("triangle")) {
@@ -24,5 +24,11 @@ public class ShapeFactoryClass {
 		}else {
 			return null;
 		}
+	}*/
+	
+	
+	// This is a factory method. using Refelection
+	public static Shape getShapeObjects(String shapeClass) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+		return (Shape) Class.forName("com.design.patterns.creational.factoyPattern."+shapeClass).newInstance(); 
 	}
 }
