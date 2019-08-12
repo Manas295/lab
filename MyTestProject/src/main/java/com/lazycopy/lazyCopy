@@ -1,0 +1,5 @@
+A lazy copy can be defined as a combination of both shallow copy and deep copy. 
+The mechanism follows a simple approach – at the initial state, shallow copy approach is used. 
+A counter is also used to keep a track on how many objects share the data. 
+When the program wants to modify the original object, it checks whether the object is shared or not. 
+If the object is shared, then the deep copy mechanism is initiated.
