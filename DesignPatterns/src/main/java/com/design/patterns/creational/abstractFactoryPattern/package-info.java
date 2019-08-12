@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author piyush.nautiyal
+ * @author manas.bansal
  *
  */
 package com.design.patterns.creational.abstractFactoryPattern;
