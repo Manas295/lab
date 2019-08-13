@@ -3,12 +3,17 @@ import java.util.concurrent.Semaphore;
 public class SemConProdDemo {
 	public static void main(String[] args) {
 
+		int threshold = 11;
 		Shared s = new Shared();
 		// Producer and Consumer threads
 		Thread t1 = new Thread(new SemProducer(s), "Producer");
-		Thread t2 = new Thread(new SemConsumer(s), "Consumer");
+		Thread t2 = new Thread(new SemConsumer(s,11/2), "Consumer");
+		Thread t3 = new Thread(new SemConsumer1(s,11/2), "Consumer");
+
 		t1.start();
-		t2.start();    
+		t2.start();
+		//multiple consumer
+		t3.start();
 	}
 }
 
@@ -58,7 +63,7 @@ class SemProducer implements Runnable{
 	}
 	@Override
 	public void run() {
-		for(int i = 0; i < 5; i++){
+		for(int i = 0; i < 11; i++){
 			s.put(i);
 		}
 	}            
@@ -67,13 +72,32 @@ class SemProducer implements Runnable{
 //Consumer thread
 class SemConsumer implements Runnable{
 	Shared s;
-	SemConsumer(Shared s){
+	int index;
+	SemConsumer(Shared s,int index){
 		this.s = s;
+		this.index = index;
 	}
 
 	@Override
 	public void run() {    
-		for(int i = 0; i < 5; i++){
+		for(int i = 0; i < index; i++){
+			s.get();                
+		}
+	}
+}
+//Consumer thread
+class SemConsumer1 implements Runnable{
+	Shared s;
+	int index;
+	SemConsumer1(Shared s,int index){
+		
+		this.s = s;
+		this.index = index;
+	}
+
+	@Override
+	public void run() {    
+		for(int i = index; i < 11; i++){
 			s.get();                
 		}
 	}
