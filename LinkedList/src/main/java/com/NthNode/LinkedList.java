@@ -58,7 +58,7 @@ class LinkedList
 	}
 	public static void main(String[] args) {
 
-		int index = 3;
+		int index = 8;
 		LinkedList llist = new LinkedList();
 		for(int i=10;i>0;i--)
 		{
@@ -70,5 +70,29 @@ class LinkedList
 		else
 			System.out.println("Index  Found  and Value at Index "+index+" is :"+result);
 		llist.printList();
+		
+		int lastNode = llist.findLastNode();
+		System.out.println("Last Node -> "+lastNode);
 	}
+
+	 int findLastNode() 
+	{ 
+		 Node h = head;
+		if (h == null) 
+			return -1; 
+
+		if (h.next == null) { 
+			return -1; 
+		} 
+
+		// Find the second last node 
+		Node second_last = h; 
+		while (second_last.next.next != null) 
+			second_last = second_last.next; 
+
+		// Change next of second last 
+		//second_last.next = null; 
+
+		return second_last.next.data; 
+	} 
 }
