@@ -3,12 +3,11 @@ import java.util.concurrent.Semaphore;
 public class SemConProdDemo {
 	public static void main(String[] args) {
 
-		int threshold = 11;
 		Shared s = new Shared();
 		// Producer and Consumer threads
 		Thread t1 = new Thread(new SemProducer(s), "Producer");
-		Thread t2 = new Thread(new SemConsumer(s,11/2), "Consumer");
-		Thread t3 = new Thread(new SemConsumer1(s,11/2), "Consumer");
+		Thread t2 = new Thread(new SemConsumer(s,5), "Consumer");
+		Thread t3 = new Thread(new SemConsumer1(s,5), "Consumer");
 
 		t1.start();
 		t2.start();
