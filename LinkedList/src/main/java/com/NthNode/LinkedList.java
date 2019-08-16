@@ -82,7 +82,7 @@ class LinkedList
 			return -1; 
 
 		if (h.next == null) { 
-			return -1; 
+			return h.data; 
 		} 
 
 		// Find the second last node 
