@@ -1,15 +1,15 @@
 package com.design.patterns.creational.factoyPattern;
 
-public class ShapeFactoryClass {
+public class ShapeFactory {
 	/*
 	 * Make this class singleton for best practise.
 	 */
-	public static final ShapeFactoryClass instance	= new ShapeFactoryClass();
+	public static final ShapeFactory instance	= new ShapeFactory();
 	
-	private ShapeFactoryClass() {
+	private ShapeFactory() {
 	}
 	
-	public static ShapeFactoryClass getInstance() {
+	public static ShapeFactory getInstance() {
 		return instance;
 	}
 	

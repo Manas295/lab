@@ -2,7 +2,7 @@ package com.design.patterns.creational.factoyPattern;
 
 public class MainClass {
 	public static void main(String[] args) {
-		ShapeFactoryClass instance	= ShapeFactoryClass.instance;
+		ShapeFactory instance	= ShapeFactory.instance;
 		
 		try {
 			instance.getShapeObjects("Triangle").draw();

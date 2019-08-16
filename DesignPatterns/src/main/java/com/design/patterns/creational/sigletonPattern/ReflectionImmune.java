@@ -13,6 +13,7 @@ public class ReflectionImmune {
 		// Making new object with reflection
 		Class clazz	= MyReflectionImmuneSingletonClass.class;
 		Constructor dConstructor	= clazz.getDeclaredConstructor();
+        // Below code will destroy the singleton pattern 
 		dConstructor.setAccessible(true);
 		instance2	= (MyReflectionImmuneSingletonClass) dConstructor.newInstance();
 		

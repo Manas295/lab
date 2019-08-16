@@ -8,8 +8,12 @@
 package com.design.patterns.structural;
 
 /*
+ * Structural patterns provide different ways to create a class structure, 
+ * for example using inheritance and composition to create a large object from small objects.
+ * 
 In software engineering, structural design patterns are design patterns that ease
 the design by identifying a simple way to realize relationships between entities.
+
 
 Examples of Structural Patterns include:
 
