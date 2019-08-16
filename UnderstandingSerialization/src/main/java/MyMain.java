@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 public class MyMain {
 	public static void main(String[] args) throws Exception, IOException {
 		
-	    //serialize();
+	    serialize();
 	    
 	    deSerialize();
 	    
