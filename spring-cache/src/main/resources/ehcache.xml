@@ -1,0 +1,34 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true"
+	monitoring="autodetect" dynamicConfig="true">
+
+	<diskStore path="c:\\cache" />
+
+	<cache name="userCache" 
+		maxEntriesLocalHeap="10000"
+		maxEntriesLocalDisk="1000" 
+		eternal="false" 
+		diskSpoolBufferSizeMB="20"
+		timeToIdleSeconds="300" timeToLiveSeconds="600"
+		memoryStoreEvictionPolicy="LFU" 
+		transactionalMode="off">
+		<persistence strategy="localTempSwap" />
+	</cache>
+
+</ehcache>
+<!--diskStore: EHCache stores data into memory but when it starts overflowing, it start writing data into file system. 
+We use this property to define the location where EHCache will write the overflown data.  -->
+
+
+<!-- Please note that in ehcache.xml, if eternal=”true” then we should not write timeToIdealSeconds, timeToLiveSeconds, 
+hibernate will take care about those values
+ So if you want to give values manually better use eternal=”false” always, so that we can assign values into timeToIdealSeconds, 
+ timeToLiveSeconds manually. -->
+
+<!--timeToIdealSeconds=”seconds” means, if the object in the global cache is ideal, 
+means not using by any other class or object then it will be waited for some time we specified 
+and deleted from the global cache if time is exceeds more than timeToIdealSeconds value.  -->
+
+<!-- timeToLiveSeconds=”seconds” means, the other Session or class using this object or not, 
+i mean may be it is using by other sessions or may not, what ever the situation might be, 
+once it competed the time specified timeToLiveSeconds, then it will be removed from the global cache by hibernate. -->
