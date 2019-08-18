@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        
+     <mvc:annotation-driven /> 
+     <context:component-scan base-package="com.controller" />
+     <bean class=
+        "org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+</beans>
+
+<!-- 
+Here <mvc:annotation-driven/> tag means DefaultAnnotationHandlerMapping is used which maps request to controller 
+and controller methods that are annotated with @RequestMapping.
+
+<context:component-scan> with the base package means the package where framework needs to look for 
+beans with @Controller annotation
+
+For resolving views InternalResourceViewResolver is used where two properties suffix and prefix are given. 
+By this approach you don’t need to hard code the views but the views are resolved at run time using the configuration. 
+For example if logical view name returned from controller is “home” then the JSP that has to be used as view will be 
+found at the location- /WEB-INF/jsp/home.jsp
+
+
+ -->
