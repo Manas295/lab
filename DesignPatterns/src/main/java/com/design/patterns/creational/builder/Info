@@ -1,3 +1,6 @@
+Def : "Builder pattern aims to “Separate the construction of a complex object from its 
+representation so that the same construction process can create different representations.”
+
 While Considering the builder pattern you need to look weather the object is having
 
 1. Complex constructor.

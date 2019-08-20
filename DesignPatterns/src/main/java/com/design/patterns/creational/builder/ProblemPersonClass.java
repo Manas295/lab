@@ -12,7 +12,14 @@ public class ProblemPersonClass {
         this.lastName = lastName;
         this.age = age;
     }
-    public ProblemPersonClass(String firstName, String lastName, int age) {
+    
+    @Override
+	public String toString() {
+		return "ProblemPersonClass [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
+				+ ", age=" + age + "]";
+	}
+
+	public ProblemPersonClass(String firstName, String lastName, int age) {
         this(firstName, null, lastName, age);
     }
     public ProblemPersonClass(String firstName, int age) {

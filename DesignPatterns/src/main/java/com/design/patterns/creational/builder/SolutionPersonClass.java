@@ -14,7 +14,17 @@ public class SolutionPersonClass {
         this.age = age;
     }
     
-    public static class Builder {
+    
+    
+    @Override
+	public String toString() {
+		return "SolutionPersonClass [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
+				+ ", age=" + age + "]";
+	}
+
+
+
+	public static class Builder {
         private String firstName;
         private String middleName;
         private String lastName;
