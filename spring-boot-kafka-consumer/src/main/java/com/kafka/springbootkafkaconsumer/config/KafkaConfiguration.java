@@ -13,8 +13,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-//import com.kafka.springbootkafkaconsumer.model.User;
-import com.kafka.springbootkakfaproducer.model.User;
+import com.kafka.springbootkafkaconsumer.model.User;
 
 @EnableKafka
 @Configuration
@@ -50,7 +49,7 @@ public class KafkaConfiguration {
 	        config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 	        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 	        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-	                new JsonDeserializer<>(User.class,false));
+	                new JsonDeserializer<>(User.class));
 	    }
 
 	    @Bean
