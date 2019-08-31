@@ -15,7 +15,7 @@ package c_common_default_in_2_interface;
 	    @Override
 	    public void log(String str){
 	    	 
-	    	//Interface1.super.log("hello");                      // use super
+	    	Interface2.super.log("hello");                      // use super
 	         
 	    }
 	    
