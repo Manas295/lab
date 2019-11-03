@@ -9,7 +9,8 @@ public class LinkedHashMapCustomApp {
            linkedHashMapCustom.put(30, 151);
            linkedHashMapCustom.put(33, 15);
            linkedHashMapCustom.put(35, 89);
- 
+           linkedHashMapCustom.put(33, 12);
+
            System.out.println("Display values corresponding to keys>");
            System.out.println("value corresponding to key 21="
                         + linkedHashMapCustom.get(21));
