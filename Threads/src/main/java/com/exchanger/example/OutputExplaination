@@ -1,0 +1,23 @@
+Exchanger has been created
+Exchanger is created,  which will enable Producer and consumer threads to exchange their data.
+
+Produced : 1
+Producer thread has produced and called exchanger() method, now it will wait for consumer thread to call exchange() method.
+Now, [str in producerThread=”1”] &
+         [str in consumerThread=””]
+
+CONSUMED : 1
+Consumer thread has called exchanger() method and following things happens >
+waiting thread (producerThread) is resumed and receives data from current thread (consumerThread).
+current thread(consumerThread) receives data from that waiting thread(producerThread) and it returns immediately.
+[Now, str in consumerThread=”1”] &
+[Now, str in producerThread=””]
+
+Produced : 2
+CONSUMED : 2
+Produced : 3
+CONSUMED : 3
+Produced : 4
+CONSUMED : 4
+Produced : 5
+CONSUMED : 5
