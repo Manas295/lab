@@ -12,6 +12,11 @@ allow elements to put in it before its capacity is automatically increased"
 
 5. initial capacity of hashmap * Load factor of hashmap =  16 * 0.75 = 12. 
 
+-> This represents that uptil 12th key-value pair 
+hashmap will keep its size to 16 and as soon as 13th 
+item(key-value pair) will come into the Hashmap,  
+it will increase its size from default 2^4 = 16 buckets to 2^5 = 32 buckets.
+
 
 load factor	= m/n  
 
