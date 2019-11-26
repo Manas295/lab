@@ -10,8 +10,8 @@ public class PriorityQDemo {
 				"Hyderabad", "Lucknow"};
 		// initializing PriortiyBlockingQueue
 		// BlockingQueue<String> priortyBQ = new PriorityBlockingQueue<String>();
-		BlockingQueue<String> priortyBQ = new PriorityBlockingQueue<String>(10, new CityComparator());
-
+	//	BlockingQueue<String> priortyBQ = new PriorityBlockingQueue<String>(10, new CityComparator());
+		BlockingQueue<String> priortyBQ = new PriorityBlockingQueue<String>(10,(s1,s2)->s1.compareTo(s2));
 		// Producer thread
 		new Thread(){
 			@Override
