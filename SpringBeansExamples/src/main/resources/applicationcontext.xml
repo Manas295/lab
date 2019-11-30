@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <context:annotation-config/> 
+    
+     <!-- Prototype bean since we have state -->
+    <bean id="cashPayment" class="com.spring.CashPayment" 
+     scope="prototype" />
+    <bean id="cardPayment" class="com.spring.CardPayment" 
+     scope="prototype" />
+    
+    <!-- ServiceLocatorFactoryBean -->
+    <bean id="paymentFactory" 
+      class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean">
+      <property name="serviceLocatorInterface" value="com.spring.PaymentFactory"/>
+    </bean>
+   
+    <bean id="payServiceBean" class="com.spring.PaymentService">
+    </bean>
+  
+</beans>
