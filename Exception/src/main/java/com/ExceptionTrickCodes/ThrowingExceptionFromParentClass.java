@@ -1,4 +1,4 @@
-package com.piyu.test.ExceptionTrickCodes;
+package com.ExceptionTrickCodes;
 
 public class ThrowingExceptionFromParentClass {
 

@@ -20,7 +20,7 @@ public class MethodOverLoadingDemo {
 		System.out.println("four");
 		MethodOverLoadingDemo methodOverLoadingDemo	= new MethodOverLoadingDemo();
 		
-		/*methodOverLoadingDemo.m1(null);*/
+	//	methodOverLoadingDemo.m1(null);
 		 
 		methodOverLoadingDemo.m1("1");
 		methodOverLoadingDemo.m1("1.1");
@@ -30,10 +30,16 @@ public class MethodOverLoadingDemo {
 		methodOverLoadingDemo.m1(1.1f);
 		methodOverLoadingDemo.m1(1.1d);
 		
+		methodOverLoadingDemo.m1(1234);
+		methodOverLoadingDemo.m1("1234");
+		
 	}
 	
 	public void m1(Object o) {
 		System.out.println("Object method called.");
+	}
+	public void m1(Integer o) {
+		System.out.println("Integer method called.");
 	}
 	
 	public void m1(String s) {

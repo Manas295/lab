@@ -1,4 +1,4 @@
-package com.piyush.test.StaticTransientFinal;
+package com.StaticTransientFinal;
 
 import java.io.FileInputStream;
 import java.io.IOException;

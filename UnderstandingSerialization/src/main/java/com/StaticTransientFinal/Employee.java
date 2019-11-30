@@ -1,4 +1,4 @@
-package com.piyush.test.StaticTransientFinal;
+package com.StaticTransientFinal;
 
 import java.io.Serializable;
 public class Employee extends superEmployee implements variableConstant{
