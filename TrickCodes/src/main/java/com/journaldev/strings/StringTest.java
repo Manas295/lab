@@ -7,9 +7,13 @@ package com.journaldev.strings;
 public class StringTest {
 
 	public static void main(String[] args) {
-		String s1 = new String("pankaj");
-		String s2 = new String("PANKAJ");
-		System.out.println(s1 = s2);
+		String s2 = new String("Baeldung");
+		String s3 = "Baeldung";
+		System.out.println(s3 == s2);
+		
+		
+		String s4 = s2;
+		System.out.println(s4 == s2);
 	}
 
 }
