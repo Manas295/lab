@@ -1,0 +1,29 @@
+Instance Initialization Blocks : IIB are used to initialize instance variables. IIBs are executed before constructors. 
+They run each time when object of the class is created.
+
+
+Initializer block : contains the code that is always executed whenever an instance is created. 
+It is used to declare/initialize the common part of various constructors of a class.
+
+
+Constructors : are used to initialize the object’s state. Like methods, a constructor also contains collection of 
+statements(i.e. instructions) that are executed at time of Object creation.
+
+
+
+->Order of execution of Initialization blocks and constructor in Java
+
+Static initialization blocks will run whenever the class is loaded first time in JVM
+
+Initialization blocks run in the same order in which they appear in the program.
+
+Instance Initialization blocks are executed whenever the class is initialized and before constructors are invoked. 
+They are typically placed above the constructors within braces.
+
+
+
+->Rules for instance initializer block :
+There are mainly three rules for the instance initializer block. They are as follows:
+The instance initializer block is created when instance of the class is created.
+The instance initializer block is invoked after the parent class constructor is invoked (i.e. after super() constructor call).
+The instance initializer block comes in the order in which they appear.
