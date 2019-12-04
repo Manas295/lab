@@ -23,6 +23,9 @@ class SuperClass{
 	{
 		System.out.println("Super Instance Block "+a);
 	}
+	static{
+		System.out.println("static block in super");
+	}
 }
 
 class ChildClass extends SuperClass{
@@ -43,7 +46,7 @@ class ChildClass extends SuperClass{
 	
 	public void display() {
 		int a	= 10;
-		System.out.println(a);
+		System.out.println("Display "+a);
 	}
 }
 
