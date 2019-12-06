@@ -1,4 +1,4 @@
-package com.piyush.test;
+package com.rest;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;

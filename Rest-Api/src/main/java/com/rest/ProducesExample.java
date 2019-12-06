@@ -1,4 +1,4 @@
-package com.piyush.test;
+package com.rest;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;

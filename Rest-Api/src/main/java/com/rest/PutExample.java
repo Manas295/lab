@@ -1,4 +1,4 @@
-package com.piyush.test;
+package com.rest;
 import java.util.HashMap;
 
 import javax.ws.rs.Consumes;
