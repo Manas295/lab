@@ -34,9 +34,11 @@ class Main
 		System.out.println("\nSorted by name");
 		NameCompare nameCompare = new NameCompare();
 	//	Collections.sort(list, nameCompare);
-		Collections.sort(list, (Movie m1, Movie m2) -> {
-			return m1.getName().compareTo(m2.getName());
-		});
+		/*
+		 * Collections.sort(list, (Movie m1, Movie m2) -> { return
+		 * m1.getName().compareTo(m2.getName()); });
+		 */
+		Collections.sort(list, Comparator.comparing(Movie::getName));
 		for (Movie movie: list)
 			System.out.println(movie.getName() + " " +
 					movie.getRating() + " " +

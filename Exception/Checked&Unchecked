@@ -1,0 +1,33 @@
+Checked Exception- These are exceptional conditions that an application should anticipate and recover from.
+
+RunTime Excpetion- These are exceptional conditions that are external to the application, and the application 
+usually cannot anticipate or recover from them.
+
+--Checked exception classes in Java
+IOException
+FileNotFoundException
+ParseException
+ClassNotFoundException
+CloneNotSupportedException
+InstantiationException
+InterruptedException
+NoSuchMethodException
+NoSuchFieldException
+
+--Unchecked Exception in Java
+With in the exception hierarchy if an exception is a subclass of RuntimeException, it is an unchecked exception. 
+An unchecked exception can also be caught by wrapping the code in try-catch block, but it does not have to as it is 
+not verified at compile time. Thus the name 'unchecked'.
+
+--Checked Vs Unchecked exception in Java
+
+1 Checked Exception is a direct subclass of Exception where as unchecked exception is a subclass of RunTimeException.
+
+2 Checked exception should be wrapped in a try-catch block or specified as throws 
+  clause where as there is no such requirement for unchecked exception.
+
+3 Failure to provide exception handling mechanism for checked exception result in compiler error whereas 
+  no compile time error for unchecked exception.
+
+4 Checked exceptions are designed to reduce the number of exceptions which are not properly handled 
+  and where there is a reasonable chance for recovery. UnCheckedExceptions are mostly programming errors.
