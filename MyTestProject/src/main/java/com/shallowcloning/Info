@@ -1,0 +1,26 @@
+1. Object cloning in Java
+
+	Object cloning is the process of creating an exact copy of the existing object. 
+	When you clone an object you get a new instance with the same content for the fields 
+	in the new object as in existing object.
+	
+	Object cloning in Java is done using clone() method which is defined in java.lang.Object class. 
+	Only those object that implement Cloneable interface are eligible for cloning.
+	
+	Both shallow copy and deep copy relates to how object is cloned. When object cloning is done using the 
+	default clone method (by calling the clone method of the Object class) it returns a shallow copy of the object.
+	
+2 . Shallow copy in Java
+	
+	As already stated when you use default clone() method, shallow copy of the object is created. 
+	What it means is that there would be field-to-field assignment. New object will also have the same 
+	fields as the original object and the same content for the fields too. It works fine for primitive 
+	data types but in case there is another object reference in your class it may be a problem
+	
+	If a class whose object is cloned contains another object then field-to-field assignment 
+	will be done for the contained object too in the cloning process. Since Java is pass by value, 
+	so copying the value of the object means object reference would be copied and there lies the problem.
+	
+	Reference of the contained object is shared between the original object and the cloned object and 
+	making any change to that object in the cloned object would be reflected in the original object 
+	too and vice versa is also true.

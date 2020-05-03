@@ -1,4 +1,4 @@
-package com.piyush.MyTestProject;
+package com.hashmap.example;
 
 import java.util.HashMap;
 

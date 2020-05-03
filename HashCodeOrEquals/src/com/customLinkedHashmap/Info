@@ -1,0 +1,43 @@
+	LinkedHashMap in Java is also one of the implementation of the Map interface. 
+	Apart from implementing Map interface LinkedHashMap also extends the HashMap class. 
+	So just like HashMap, LinkedHashMap also allows one null key and multiple null values.
+
+	In Java LinkedHashMap there are two options for ordering the elements-
+	----------------------------------------------------------------------
+	Insertion ordering- Insertion ordering means if you iterate a LinkedHashMap you'll get the keys 
+	in the order in which they were inserted in the Map. Insertion ordering is the default ordering 
+	in the LinkedHashMap. Note that insertion order is not affected if a key is re-inserted into the 
+	map (if a same key in inserted more than once the last time it was inserted will be taken into account).
+
+	Access ordering- Another option for ordering in LinkedHashMap is access ordering. Which means while 
+	iterating order of iteration is the order in which its entries were last accessed, from least-recently 
+	accessed to most-recently. A special constructor is provided to create a LinkedHashMap that follows access ordering. 
+	If you pass true in that constructor then access ordering is followed
+	
+	
+	How LinkedHashMap is implemented
+	--------------------------------
+	LinkedHashMap in Java is the Hash table and linked list implementation of the Map interface. 
+	It maintains a doubly-linked list running through all of its entries and that's how it maintains 
+	the iteration order. Apart from maintaining a doubly linked list the internal implementation of the 
+	LinkedHashMap is same as the internal implementation of the HashMap.
+	
+	Java LinkedHashMap Constructors
+	-------------------------------
+	LinkedHashMap()- Constructs an empty LinkedHashMap instance with the default initial capacity (16) and 
+	load factor (0.75). Uses the default ordering which is insertion ordering.
+	
+	LinkedHashMap(int initialCapacity)- Constructs an empty insertion-ordered LinkedHashMap instance with 
+	the specified initial capacity and a default load factor (0.75).
+	
+	LinkedHashMap(int initialCapacity, float loadFactor)- Constructs an empty insertion-ordered LinkedHashMap 
+	instance with the specified initial capacity and load factor.
+	
+	LinkedHashMap(int initialCapacity, float loadFactor, boolean accessOrder)- Constructs an empty LinkedHashMap 
+	instance with the specified initial capacity, load factor and ordering mode. If ordering mode is passed as 
+	true that means access-order, false for insertion-order
+	(true, that means ordering mode is Access order[from least-recently accessed to most-recently".], 
+	if passed as false that would mean ordering mode is insertion order.)
+	
+	LinkedHashMap(Map<? extends K,? extends V> m)- Constructs an insertion-ordered LinkedHashMap instance 
+	with the same mappings as the specified map.

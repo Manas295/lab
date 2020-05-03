@@ -1,0 +1,10 @@
+1. Deep Copy in Java
+
+	When a deep copy is done objects referenced by the cloned object are distinct from those 
+	referenced by original object, and independent.
+
+	To create a deep copy while cloning an object you need to override clone method and call 
+	clone() method for even the objects referenced by the cloned object.
+
+	Deep copies are more expensive, as you need to create additional objects, and can be 
+	substantially more complicated, due to references possibly forming a complicated graph.
