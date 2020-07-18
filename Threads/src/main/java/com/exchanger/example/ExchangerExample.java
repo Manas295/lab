@@ -42,7 +42,6 @@ class Producer implements Runnable{
 }
 
 class Consumer implements Runnable{
-	Producer prod;
 	Exchanger<String> exchanger;
 	String str;
 	Consumer(Exchanger<String> exchanger){
