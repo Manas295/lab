@@ -163,5 +163,11 @@ public class CoreTerminalOperations {
 
          */
         
+        List<Person> people1 = new ArrayList<>();		
+		people1.add(new Person("Joe", 48));
+		people1.add(new Person("Aary", 30));
+		people1.add(new Person("Mike", 73));
+		people1.stream().map(emp->emp.getAge()).collect(Collectors.toList());
+        
 	}
 }

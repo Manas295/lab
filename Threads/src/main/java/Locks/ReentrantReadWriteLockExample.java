@@ -17,10 +17,10 @@ public class ReentrantReadWriteLockExample {
 		Lock writingLock	= readWriteLock.writeLock();
 		Lock readingLock	= readWriteLock.readLock();
 
-		ExecutorService writingThreadPool	= Executors.newFixedThreadPool(100);
-		ExecutorService readingThreadPool	= Executors.newFixedThreadPool(100);
+		ExecutorService writingThreadPool	= Executors.newFixedThreadPool(10);
+		ExecutorService readingThreadPool	= Executors.newFixedThreadPool(10);
 
-		for(int i=0;i<100;i++) {
+		for(int i=0;i<10;i++) {
 			writingThreadPool.submit(new WritingTask(someNumber, writingLock));
 			readingThreadPool.submit(new ReadingTask(someNumber, readingLock));
 		}
@@ -42,7 +42,7 @@ class WritingTask extends Thread{
 		try {
 			writingLock.lock();
 			numberToIncrease.addAndGet(1);
-			//System.out.println("Written value is : "+numberToIncrease.get());
+			System.out.println("Written value is : "+numberToIncrease.get());
 			writingLock.unlock();
 		}catch(Exception e) {
 			e.printStackTrace();
