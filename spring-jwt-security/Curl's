@@ -1,0 +1,25 @@
+curl --location --request POST 'http://localhost:8080/register' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "userName": "manas",
+    "password": "Bax@ecis295",
+    "active": "true",
+    "roles": "ADMIN"
+}'
+
+--------------------
+
+curl --location --request POST 'http://localhost:8080/authenticate' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "username": "manas",
+    "password": "manas"
+}'
+
+--------------------
+curl --location --request GET 'http://localhost:8080/hello' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hcyIsImV4cCI6MTU5NTcxMzk2NSwiaWF0IjoxNTk1Njc3OTY1fQ.Gs1yoO8aigWjOqAbGbC1ruU4gtA3tb1ycwLmJH2N7QU'
+
+----------------------
+
