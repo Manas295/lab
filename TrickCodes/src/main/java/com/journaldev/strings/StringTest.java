@@ -14,6 +14,17 @@ public class StringTest {
 		
 		String s4 = s2;
 		System.out.println(s4 == s2);
+		
+		String st1 = "Rahul";
+        String st2 = "Rahul";
+        String st3 = new String("Rahul").intern();
+        if(st1.equals(st3)){//st1 == st3
+            System.out.println("rk if");
+        }
+        if(st1 == st3){
+            System.out.println("rk else");
+        }
+
 	}
 
 }

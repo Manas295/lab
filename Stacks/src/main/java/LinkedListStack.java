@@ -1,95 +1,67 @@
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-
 public class LinkedListStack {
-    //Reference for the top of the stack
-    Node top;
-    public LinkedListStack(){
-        top = null;
-    }
-    //Class representing each node
-    private class Node{
-        //data
-        int i;
-        //ref to next node
-        Node next;
-        Node(int i){
-            this.i = i;
-        }
+	private Node head; // the first node
+	 
+	// nest class to define linkedlist node
+	private class Node {
+		int value;
+		Node next;
+	}
+ 
+	public LinkedListStack() {
+		head = null;
+	}
+ 
+	// Remove value from the beginning of the list for demonstrating behaviour of stack
+	public int pop() throws LinkedListEmptyException {
+		if (head == null) {
+			throw new LinkedListEmptyException();
+		}
+		int value = head.value;
+		head = head.next;
+		return value;
+	}
+ 
+	// Add value to the beginning of the list for demonstrating behaviour of stack
+	public void push(int value) {
+		Node oldHead = head;
+		head = new Node();
+		head.value = value;
+		head.next = oldHead;
+	}
+ 
+	public static void main(String args[]) 
+	{
+		LinkedListStack lls=new LinkedListStack();
+		lls.push(20);
+		lls.push(50);
+		lls.push(80);
+		lls.push(40);
+		lls.push(60);
+		lls.push(75);
+		System.out.println("Element removed from LinkedList: "+lls.pop());
+		System.out.println("Element removed from LinkedList: "+lls.pop());
+		lls.push(10);
+		System.out.println("Element removed from LinkedList: "+lls.pop());
+		printList(lls.head);
+	}
+	public static void printList(Node head) {
+		Node temp = head;
+		while (temp != null) {
+			System.out.format("%d ", temp.value);
+			temp = temp.next;
+		}
+		System.out.println();
+	}
+}
 
-		/*
-		 * public void displayData(){ System.out.println("i= " + i); }
-		 */
-        public Consumer<Node> displayData = (node) -> System.out.println("i= "+node.i);
-    }
-    
-    public void insertNode(int i){
-        //Create a new node
-        Node newNode = new Node(i);
-        // current top is pushed down
-        newNode.next = top;
-        // newly inserted node is referenced by top
-        top = newNode;
-    }
-    
-    public int removeNode(){        
-        Node temp = top;
-        // Next item in the stack is referenced by top
-        top = top.next;
-        return temp.i;
-    }
-    
-    public int nodeData(){
-        return top.i;
-    }
-    
-	/*
-	 * public boolean isEmpty(){ return top == null; }
-	 */
-    public static Predicate<Node> isEmpty(){ return top -> (top == null);}
-    
-    public void push(int item){
-        insertNode(item);
-    }
-    public int pop(){
-        // If no item is inserted
-        if(isEmpty().test(top)){
-            throw new RuntimeException("Stack is Empty");
-        }
-        return removeNode();
-    }
-    
-    public int peek(){
-        // If no item is inserted
-        if(isEmpty().test(top)){
-            throw new RuntimeException("Stack is Empty");
-        }
-        return nodeData();
-    }
-    
-    public void displayStack(){
-        // start from the top
-        Node current = top;
-        // traverse the list
-        while(current != null){
-            //current.displayData();
-        	current.displayData.accept(current);
-        	current = current.next;
-        }
-    }
-    public static void main(String[] args) {
-        LinkedListStack stack = new LinkedListStack();
-        stack.push(10);
-        stack.push(20);
-        stack.push(30);
-        stack.push(40);
-        System.out.println("Item peeked- " + stack.peek());
-        System.out.println("Items in stack--");
-        stack.displayStack();
-        System.out.println("Item popped- " + stack.pop());
-        System.out.println("Item popped- " + stack.pop());
-        System.out.println("Item peeked- " + stack.peek());
-        System.out.println("Items in stack--");
-        stack.displayStack();
-    }
+class LinkedListEmptyException extends RuntimeException {
+	private static final long serialVersionUID = 1L;
+ 
+	public LinkedListEmptyException() {
+		super();
+	}
+ 
+	public LinkedListEmptyException(String message) {
+		super(message);
+	}
 }

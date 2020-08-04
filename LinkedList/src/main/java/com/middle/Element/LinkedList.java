@@ -23,7 +23,7 @@ class LinkedList
 	void printMiddle()
 	{
 		Node slow_ptr = head;
-		Node fast_ptr = head;
+		Node fast_ptr = head.next.next;
 		if (head != null)
 		{
 			while (fast_ptr != null && fast_ptr.next != null)
@@ -59,7 +59,7 @@ class LinkedList
 	public static void main(String[] args) {
 
 		LinkedList llist = new LinkedList();
-		for(int i=10;i>0;i--)
+		for(int i=19;i>0;i--)
 		{
 			llist.push(i);
 		}

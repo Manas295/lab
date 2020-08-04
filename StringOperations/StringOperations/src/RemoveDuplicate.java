@@ -13,6 +13,7 @@ public class RemoveDuplicate {
 				ans =  ans+ch;
 			}
 			str = str.replace(ch,' ');
+			System.out.println(str);
 		}
 		System.out.println(ans);
 		

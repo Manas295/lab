@@ -7,15 +7,15 @@ public class PrintNumbersInSequenceBy3Threads {
 
 		Object obj	= new Object();
 		Object obj2	= new Object();
-		Object obj3	= new Object();
+		//Object obj3	= new Object();
 
 		Thread t1	= new Thread(new SomeRunnableTask(obj, obj2));
-		Thread t2	= new Thread(new SomeRunnableTask(obj2,obj3));
-		Thread t3	= new Thread(new SomeRunnableTask(obj3, obj));
+		Thread t2	= new Thread(new SomeRunnableTask(obj2,obj));//obj3));
+		//Thread t3	= new Thread(new SomeRunnableTask(obj3, obj));
 
 		t1.start();
 		t2.start();
-		t3.start();
+	//	t3.start();
 		
 		try {
 			Thread.sleep(1000);

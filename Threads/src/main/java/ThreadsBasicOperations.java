@@ -5,7 +5,7 @@ public class ThreadsBasicOperations {
 	public static void main(String[] args) {
 
 		TestWaitNotify testWaitNotify	= new TestWaitNotify();
-		//testWaitNotify.testWaitNotify();
+		testWaitNotify.testWaitNotify();
 
 		TestJoin testJoin = new TestJoin();
 		//testJoin.testJoin();
@@ -14,7 +14,7 @@ public class ThreadsBasicOperations {
 		//testDemonThreads.testDemonThreads();
 
 		TestYieldMethod testYieldMethod	= new TestYieldMethod();
-		testYieldMethod.testYield();
+		//testYieldMethod.testYield();
 	}
 }
 
