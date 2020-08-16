@@ -21,7 +21,7 @@ public class TestCompletableFuture {
 		    System.out.println("Task executing asynchronously");
 		});
 
-		System.out.println("Value- " + asyncCf.get());
+		System.out.println(" runAsync Value- " + asyncCf.get());
 		
 		/* runAsync() is fine for running asynchronous computations but it doesn't return value. 
 		 * If you want to return a new CompletableFuture with a value then you can use supplyAsync(Supplier<U> supplier) method. 
@@ -30,7 +30,7 @@ public class TestCompletableFuture {
 		CompletableFuture supplyAsync = CompletableFuture.supplyAsync(()->{
 			 return "Hello";
 			});
-			System.out.println("Value- " + supplyAsync.get());
+			System.out.println("supplyAsync Value- " + supplyAsync.get());
 			
 		/* Let’s add a new stage to create a chain.*/
 			/*
@@ -42,7 +42,7 @@ public class TestCompletableFuture {
 			    return "Hello";
 			}).thenApply(value-> value.toUpperCase());
 
-			System.out.println("Value- " + cf1.get());
+			System.out.println("supplyAsync with thenApply Value- " + cf1.get());
 		
 		/* Using the Async variant of the method where an Executor is passed. Note that with the Async variant, 
 		 * method is asynchronously executed in a separate thread obtained from the Executor or from the ForkJoinPool.commonPool() 
@@ -53,7 +53,7 @@ public class TestCompletableFuture {
 			    return "Hello";
 			}).thenApplyAsync(value-> value.toUpperCase(), executor);
 
-			System.out.println("Value- " + cf2.get());
+			System.out.println("supplyAsync with thenApplyAsync Value- " + cf2.get());
 			executor.shutdown();
 			
 		/*
@@ -63,7 +63,7 @@ public class TestCompletableFuture {
 			CompletableFuture.supplyAsync(()->{
 			    return "Hello";
 			}).thenAccept(value-> {
-			    System.out.println("Value- " + value);
+			    System.out.println("supplyAsync with thenAccept Value- " + value);
 			});
 			
 			/*thenApply()- Returns a new CompletionStage where the type of the result is based on the 
@@ -76,7 +76,7 @@ public class TestCompletableFuture {
 			    String str1 = value.toUpperCase();
 			    return CompletableFuture.completedFuture(str1);
 			});
-			System.out.println("Value- " + cf3.get().get());
+			System.out.println("supplyAsync with thenApply Value- " + cf3.get().get());
 			//CompletableFuture<CompletableFuture<String>> so using get().get() will give 
 			//exact result
 			
@@ -89,7 +89,7 @@ public class TestCompletableFuture {
 			    String str4 = value.toUpperCase();
 			    return CompletableFuture.completedFuture(str4);
 			});
-			System.out.println("Value- " + cf4.get());	
+			System.out.println("supplyAsync with thenCompose Value- " + cf4.get());	
 			
 			//Combining two independent CompletableFutures
 			/*There is a thenCombine() method that can be used if you want to combine 
@@ -108,7 +108,7 @@ public class TestCompletableFuture {
 			});
 
 			CompletableFuture<String> result = future1.thenCombine(future2, (str1, str2) -> str1 + " " + str2);
-			System.out.println("Value- " + result.get());
+			System.out.println( "thenCombine Value- " + result.get());
 				
 			//Excepion Handling Esample
 			String str3 = null; //"Hello"
@@ -136,7 +136,7 @@ public class TestCompletableFuture {
 			  }
 			  return s;
 			});
-			System.out.println("Value - "+value1.get());
+			System.out.println(" exception with handle Value - "+value1.get());
 			
 			//CompletableFuture exception handling with whenComplete example
 
@@ -152,7 +152,7 @@ public class TestCompletableFuture {
 			    //s = "";
 			  }
 			});
-			System.out.println("Value - "+val.get());
+			System.out.println(" exception with whenComplete Value - "+val.get());
 
 	}
 		

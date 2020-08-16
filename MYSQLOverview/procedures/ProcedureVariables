@@ -25,7 +25,7 @@ DECLARE variable_name datatype(size) DEFAULT default_value;
     A variable can have any MySQL data types such as INT, VARCHAR , and DATETIME.
     
 3.  Third, when you declare a variable, its initial value is NULL. 
-    You can assign the variable a default value using the DEFAULTkeyword.
+    You can assign the variable a default value using the DEFAULT keyword.
 
 4.  A variable that begins with the @ sign is session variable. 
     It is available and accessible until the session ends.
@@ -34,7 +34,7 @@ DECLARE variable_name datatype(size) DEFAULT default_value;
 
 VARIABLE SCOPE
 
-1.  f you declare a variable inside a stored procedure, 
+1.  if you declare a variable inside a stored procedure, 
     it will be out of scope when the END statement of stored procedure reached.
 
 2.  You can declare two or more variables with the same name in different scopes 
