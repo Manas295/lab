@@ -1,4 +1,4 @@
-package com.baseclassnotserialized;
+package com.subclassnotserialized;
 
 public class PackageInfo {
 	/*
