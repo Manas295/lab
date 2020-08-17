@@ -9,10 +9,10 @@ public class HashMapCustomApp {
 		hashMapCustom.put(30, 151);
 		hashMapCustom.put(33, 15);
 		hashMapCustom.put(35, 89);
-		hashMapCustom.put(null, 889);
-		hashMapCustom.put(null, 890);
-		hashMapCustom.put(null, 891);		
-		hashMapCustom.put(null, 892);
+//		hashMapCustom.put(null, 889);
+//		hashMapCustom.put(null, 890);
+//		hashMapCustom.put(null, 891);		
+//		hashMapCustom.put(null, 892);
 
 		System.out.println("value corresponding to key 21="
 				+ hashMapCustom.get(21));

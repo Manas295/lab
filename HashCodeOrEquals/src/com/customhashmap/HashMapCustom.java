@@ -78,31 +78,20 @@ class HashMapCustom<K, V> {
 	 * Method returns value corresponding to key.
 	 * @param key
 	 */
-	public V get(K key){
-		int hash = hash(key);
-
-		if(key==null) {
-			Entry<K,V> temp = table[hash];
-			while(temp!= null){
-				if(temp.key == key)
-					return temp.value;
-				temp = temp.next; //return value corresponding to key.
-			}         
-			return null;   //returns null if key is not found.
-
-		}
-		if(table[hash] == null){
-			return null;
-		}else{
-			Entry<K,V> temp = table[hash];
-			while(temp!= null){
-				if(temp.key.equals(key))
-					return temp.value;
-				temp = temp.next; //return value corresponding to key.
-			}         
-			return null;   //returns null if key is not found.
-		}
-	}
+	 public V get(K key){
+	        int hash = hash(key);
+	        if(table[hash] == null){
+	         return null;
+	        }else{
+	         Entry<K,V> temp = table[hash];
+	         while(temp!= null){
+	             if(temp.key.equals(key))
+	                 return temp.value;
+	             temp = temp.next; //return value corresponding to key.
+	         }         
+	         return null;   //returns null if key is not found.
+	        }
+	    }
 
 
 	/**
