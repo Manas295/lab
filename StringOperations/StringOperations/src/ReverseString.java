@@ -11,6 +11,24 @@ public class ReverseString {
 		}
 		
 		System.out.println(reverse);
+		
+		int start =0;
+		int end = str.length()-1;
+		int mid = (end-start)/2;
+		char []str1 = str.toCharArray();
+		String finalStr = "";
+		for(int j=0 ; j<mid;j++) {
+			
+			char ch = str1[j];
+			str1[j] = str1[end];
+			str1[end] = ch;
+			end--;
+		}
+		
+		for(char ch : str1) {
+			finalStr+=ch;
+		}
+		System.out.println(finalStr);
 	}
 
 }

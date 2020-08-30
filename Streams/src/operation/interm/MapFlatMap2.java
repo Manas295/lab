@@ -26,6 +26,10 @@ public class MapFlatMap2 {
 		           .count();
 		
 		System.out.println("flattend list: " + count);
+		//Cross join of 2 list
+		List<String> list = (List<String>) evens.stream().flatMap(x-> odds.stream().map(y-> x+","+y)).collect(Collectors.toList());
+		
+		list.forEach(System.out::println);
 	     
 	
 
