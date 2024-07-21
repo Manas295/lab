@@ -9,8 +9,9 @@ public class FirstNonRepeatingChar {
 		String str = "iindiiia";
 
 		/**
+		 *  
 		 *  Initially an IntStream is created with input.chars(). where each integer value represent a character in string
-		 *  mapToObj converts the IntStream to a Stream<Character>
+		 *  mapToObj converts each integer back to its corresponding char
 		 *  Function.identity() returns the input as output. i.e. x -> x. So, it returns the Character object in the stream itself.
 		 *  Collectors.groupingBy(…) stores Character objects as a key & count of each character as a value. LinkedHasMap is used to main the order.
 		 *  
@@ -21,6 +22,10 @@ public class FirstNonRepeatingChar {
 
 		String res = charactersMap.entrySet().stream()
 				.filter(entry -> entry.getValue()==1).findFirst().get().getKey().toString();
+//		charactersMap.entrySet().stream()
+//				.forEach(entry ->{
+//					System.out.println(entry.getKey() +" "+entry.getValue());
+//				});
 
 		System.out.println(res);
 	}

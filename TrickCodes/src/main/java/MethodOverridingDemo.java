@@ -7,6 +7,7 @@ class A{
 	void process(int i) {
 		System.out.println("Inside Super class process method");
 		x=x+i;
+		System.out.println("A "+x);
 	}
 }
 class B extends A{
@@ -17,6 +18,8 @@ class B extends A{
 	void process(int i){
 		System.out.println("Inside base class process method");
 		x=x*i;
+		System.out.println("B "+x);
+
 	}
 }
 
