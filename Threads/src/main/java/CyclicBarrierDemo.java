@@ -15,9 +15,9 @@ public class CyclicBarrierDemo {
 		MyWorker myWorker1	= new MyWorker(cyclicBarrier,2000l);
 		MyWorker myWorker2	= new MyWorker(cyclicBarrier,2000L);
 
-		/*WillRunWhenBarrierIsBroken barrierIsBroken	= new WillRunWhenBarrierIsBroken(cyclicBarrier);
+		WillRunWhenBarrierIsBroken barrierIsBroken	= new WillRunWhenBarrierIsBroken(cyclicBarrier);
 		barrierIsBroken.start();
-		*/
+		
 		ThisWillBreakTheBarrier breakTheBarrier	= new ThisWillBreakTheBarrier(cyclicBarrier);
 		
 		myWorker.start();
