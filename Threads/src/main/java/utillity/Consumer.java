@@ -5,6 +5,7 @@ import java.util.concurrent.locks.Lock;
 public class Consumer extends Thread{
 	Resource resource;
 	Lock lock;
+	
 	public void setResource(Resource resource,Lock lock) {
 		this.resource	=  resource;
 		this.lock		= lock;
