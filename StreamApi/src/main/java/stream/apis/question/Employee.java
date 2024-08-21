@@ -34,4 +34,11 @@ public class Employee {
 	public String getGender() {
 		return gender;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", age=" + age + ", gender=" + gender + ", salary=" + salary
+				+ "]";
+	}
+	
 }
