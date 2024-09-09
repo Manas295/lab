@@ -44,6 +44,10 @@ class Main
 					movie.getRating() + " " +
 					movie.getYear());
 
+		/*
+		 * MORE REFERENCE : https://medium.com/@coffeeandtips.tech/using-comparator-comparing-to-sort-java-stream-a6e0302dce1a
+		 * https://medium.com/@ganesh.shah/comparator-vs-comparable-java-8-940a83f53bd3
+		 */
 
 	}
 }  

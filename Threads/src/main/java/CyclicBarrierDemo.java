@@ -4,103 +4,58 @@ import java.util.concurrent.CyclicBarrier;
 public class CyclicBarrierDemo {
 
 	public static void main(String[] args) throws Exception {
+		CyclicBarrier cyclicBarrier = new CyclicBarrier(3, new Runnable() {
+			@Override
+			public void run() {
+				System.out.println("All bikers reached common point");
+			}
+		});
 
-		int totalParties	= 3;
-		
-		CyclicBarrierAction cyclicBarrierAction	= new CyclicBarrierAction();
-		
-		CyclicBarrier cyclicBarrier	= new CyclicBarrier(totalParties,cyclicBarrierAction);
+		Thread thread1 = new Thread(new Biker("Biker1", cyclicBarrier, 1000));
+		Thread thread2 = new Thread(new Biker("Biker2", cyclicBarrier, 2000));
+		Thread thread3 = new Thread(new Biker("Biker3", cyclicBarrier, 3000));
 
-		MyWorker myWorker	= new MyWorker(cyclicBarrier,2000l);
-		MyWorker myWorker1	= new MyWorker(cyclicBarrier,2000l);
-		MyWorker myWorker2	= new MyWorker(cyclicBarrier,2000L);
+		thread1.start();
+		thread2.start();
+		thread3.start();
 
-		WillRunWhenBarrierIsBroken barrierIsBroken	= new WillRunWhenBarrierIsBroken(cyclicBarrier);
-		barrierIsBroken.start();
-		
-		ThisWillBreakTheBarrier breakTheBarrier	= new ThisWillBreakTheBarrier(cyclicBarrier);
-		
-		myWorker.start();
-		myWorker1.start();
-		myWorker2.start();
-
-		//Total parties are 4 ad only 3 await() methods are called.
-		
-		breakTheBarrier.start();  // An exception will be thrown on myWorker,myWorker1 and myWorker2 where await() is called.
-		//In myWorker3 await is not called yet.
 
 
 	}
 }
 
+class Biker implements Runnable {
 
-class MyWorker extends Thread{
-
+	String name;
 	CyclicBarrier cyclicBarrier;
-	Long sleeptime;
-	public MyWorker(CyclicBarrier cyclicBarrier,Long sleepTime) {
-		this.cyclicBarrier	= cyclicBarrier;
-		this.sleeptime		= sleepTime;
+	int travelTime;
+
+	public Biker(String name, CyclicBarrier cyclicBarrier, int travelTime) {
+		this.name = name;
+		this.cyclicBarrier = cyclicBarrier;
+		this.travelTime = travelTime;
 	}
+
+	@Override
 	public void run() {
+		System.out.println(name + " started from his place");
 
-		
 		try {
-			System.out.println(Thread.currentThread().getName()+" called await");
-			cyclicBarrier.await();
-			System.out.println(Thread.currentThread().getName()+" continues its work");
-			Thread.sleep(sleeptime);
-
+			Thread.sleep(travelTime);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		System.out.println(name + " reached common point and waiting for others to join");
+
+		try {
+			cyclicBarrier.await();
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (BrokenBarrierException e) {
-			// TODO Auto-generated catch block
-			System.out.println(Thread.currentThread().getName()+ " Barrier is broken ");
-		}
-	}
-}
-
-class WillRunWhenBarrierIsBroken extends Thread{
-	CyclicBarrier cyclicBarrier;
-
-	public WillRunWhenBarrierIsBroken(CyclicBarrier cyclicBarrier) {
-		this.cyclicBarrier	= cyclicBarrier;
-	}
-
-	public void run() {
-		System.out.println(Thread.currentThread().getName()+" is waiting for barrier to get broken");
-		while(true) {
-			if(cyclicBarrier.isBroken()) {
-				System.out.println("Barrier broken .. "+Thread.currentThread().getName()+" is free now");
-				break;
-			}
-		}
-	}
-}
-
-class ThisWillBreakTheBarrier extends Thread{
-	CyclicBarrier cyclicBarrier;
-	public ThisWillBreakTheBarrier(CyclicBarrier cyclicBarrier) {
-		this.cyclicBarrier	= cyclicBarrier;
-	}
-
-	public void run() {
-		try {
-			Thread.sleep(1000);
-			System.out.println(Thread.currentThread().getName()+" rest the barrier now ");
-			cyclicBarrier.reset();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		
+		System.out.println(name + " continues his journey");
 	}
-}
-
-class CyclicBarrierAction extends Thread{
-	public void run() {
-		System.out.println("Barrier is done.,,,,");
-	}
-}
+}	
