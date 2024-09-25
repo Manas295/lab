@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class GroupListOfStringByLength {
+public class Q11GroupListOfStringByLength {
 	public static void main(String[] args) {
 		List<String> strings = Arrays.asList("apple","banana","plum","pomegranate",
 				"grape","melon","pear","kiwi");

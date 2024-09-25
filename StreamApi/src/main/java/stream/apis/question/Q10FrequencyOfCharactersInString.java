@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class FrequencyOfCharactersInString {
+public class Q10FrequencyOfCharactersInString {
 	public static void main(String[] args) {
 		String input = "aaabbccc";
         //keyMapper a mapping function to produce 

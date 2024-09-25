@@ -3,7 +3,7 @@ package stream.apis.question;
 import java.util.Random;
 import java.util.stream.Stream;
 
-public class GenerateInfiniteSequenceOfRandomNumAndPrintFirst10 {
+public class Q22GenerateInfiniteSequenceOfRandomNumAndPrintFirst10 {
 
 	public static void main(String[] args) {
 		Random random = new Random();

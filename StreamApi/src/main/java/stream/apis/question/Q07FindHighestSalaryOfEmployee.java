@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-public class FindHighestSalaryOfEmployee {
+public class Q07FindHighestSalaryOfEmployee {
 	public static void main(String[] args) {
 		List<Employee> employees = Arrays.asList(
 	            new Employee(1, "John Doe", 30, "Male", 50000),

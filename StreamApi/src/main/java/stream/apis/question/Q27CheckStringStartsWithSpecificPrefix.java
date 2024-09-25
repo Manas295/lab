@@ -3,7 +3,7 @@ package stream.apis.question;
 import java.util.Arrays;
 import java.util.List;
 
-public class CheckStringStartsWithSpecificPrefix {
+public class Q27CheckStringStartsWithSpecificPrefix {
 	public static void main(String[] args) {
 		List<String> strings = Arrays.asList("apple", "banana", "cherry", "date");
 		String prefix = "ba";

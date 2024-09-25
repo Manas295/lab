@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 //Concatenate a list of strings into a single string, separated by commas, using streams ?
-public class ConcatListOfStringIntoASingleString {
+public class Q08ConcatListOfStringIntoASingleString {
 	public static void main(String[] args) {
 		List<String> strings = Arrays.asList("Apple","Banana","Cherry","Date");
 		/**

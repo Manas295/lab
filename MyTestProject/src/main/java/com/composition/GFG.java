@@ -39,7 +39,7 @@ class GFG
 					+" Author : " + bk.author); 
 		} 
 	} 
-} 
+}
 //class book 
 class Book  
 { 

@@ -3,7 +3,7 @@ package stream.apis.question;
 import java.util.Arrays;
 import java.util.List;
 
-public class FilterListOfNumToIncludeGreaterThan10AndTheirAvg {
+public class Q13FilterListOfNumToIncludeGreaterThan10AndTheirAvg {
 	public static void main(String[] args) {
 		List<Integer> numbers = Arrays.asList(5, 10, 15, 20, 25);
 		//mapToInt -> Converts the Stream<Integer> to an Instream because Instream has a method average that 

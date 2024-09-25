@@ -1,10 +1,11 @@
 package stream.apis.question;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Top3HighestPaidEmployee {
+public class Q28Top3HighestPaidEmployee {
 
 	public static void main(String[] args) {
 		List<Employee> employees = Arrays.asList(
@@ -21,6 +22,14 @@ public class Top3HighestPaidEmployee {
 				.limit(3)
 				.collect(Collectors.toList());
 		topPaidEmployees.forEach(System.out::println);
+		System.out.println("-----------------------------------------------------------");
+		List<Employee> topPaidEmployees1 = employees.stream()
+				.sorted(Comparator.comparing(Employee::getSalary).reversed())
+				.limit(3)
+				.collect(Collectors.toList());
+		
+		topPaidEmployees1.forEach(System.out::println);
+
 	}
 
 }

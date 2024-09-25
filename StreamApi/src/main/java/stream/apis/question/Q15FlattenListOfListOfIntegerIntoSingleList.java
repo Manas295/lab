@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import org.w3c.dom.ls.LSInput;
 
-public class FlattenListOfListOfIntegerIntoSingleList {
+public class Q15FlattenListOfListOfIntegerIntoSingleList {
 	public static void main(String[] args) {
 		List<List<Integer>> listOfLists = Arrays.asList(
 				Arrays.asList(1, 2, 3),

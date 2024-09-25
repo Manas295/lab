@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class FindDuplicateElementsInList {
+public class Q03FindDuplicateElementsInList {
 	public static void main(String[] args) {
 		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 2, 6, 3, 7, 8, 4);
 		 List<Integer> duplicatesInList = numbers.stream().collect(Collectors.groupingBy(Function.identity()

@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-public class OldestPerson {
+public class Q17OldestPerson {
 	public static void main(String[] args) {
 		  List<Person> people = Arrays.asList(
 	                new Person("John", "Doe", 25),

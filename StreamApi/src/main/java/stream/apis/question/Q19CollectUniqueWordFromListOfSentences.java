@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class CollectUniqueWordFromListOfSentences {
+public class Q19CollectUniqueWordFromListOfSentences {
 	public static void main(String[] args) {
 		List<String> sentences = Arrays.asList(
 				"Java 8 introduced streams",

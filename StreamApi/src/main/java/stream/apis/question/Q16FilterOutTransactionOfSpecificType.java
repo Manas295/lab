@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class FilterOutTransactionOfSpecificType {
+public class Q16FilterOutTransactionOfSpecificType {
 public static void main(String[] args) {
 	List<Transaction> transactions = Arrays.asList(
             new Transaction("deposit", 100.0),

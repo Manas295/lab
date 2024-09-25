@@ -2,7 +2,7 @@ package stream.apis.question;
 
 import java.util.stream.Collectors;
 
-public class RemoveOccurranceOfGivenChar {
+public class Q04RemoveOccurranceOfGivenChar {
 	public static void main(String[] args) {
 		String str = "java interview";
         char ch = 'a';

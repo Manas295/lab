@@ -2,7 +2,7 @@ package stream.apis.question;
 
 import java.util.stream.Collectors;
 
-public class FindSpecialCharacterInString {
+public class Q05FindSpecialCharacterInString {
 	public static void main(String[] args) {
 		String input = "Hello, World! 123 #Java$Stream";
 		

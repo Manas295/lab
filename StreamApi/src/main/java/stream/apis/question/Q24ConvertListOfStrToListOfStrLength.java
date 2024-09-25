@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ConvertListOfStrToListOfStrLength {
+public class Q24ConvertListOfStrToListOfStrLength {
 
 	public static void main(String[] args) {
 	    List<String> strings = Arrays.asList("apple", "banana", "cherry", "date");
