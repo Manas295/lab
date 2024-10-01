@@ -15,8 +15,17 @@ public class Q01HowManyMalesAndFemalesEmployeesInOrg {
 		            new Employee(5, "Robert Brown", 50, "Male", 90000)
 		        );
 		  
-		  Map<String, Long> genderCount = employees.stream().collect(Collectors.groupingBy(Employee :: getGender,Collectors.counting()));
-		  Map<String, Double> averageSalary = employees.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary)));
+		  Map<String, Long> genderCount = employees.stream().
+				  collect(Collectors.groupingBy(Employee :: getGender,Collectors.counting()));
+		  
+		  
+		  //https://www.netjstech.com/2022/04/java-stream-collectors-summingint-summinglong.html
+		  //https://www.netjstech.com/2022/04/java-stream-collectors-averagingint-averagingdouble.html
+		  //Java Stream - Collectors.summingInt(), summingLong(), summingDouble().
+		  //Java Stream - Collectors.averagingInt(), averagingLong(), averagingDouble()
+		  Map<String, Double> averageSalary = employees.stream().
+				  collect(Collectors.groupingBy(Employee::getGender, 
+						  Collectors.averagingDouble(Employee::getSalary)));
 		  System.out.println("Gender Count: " + genderCount);
 	      System.out.println("Average Salary: " + averageSalary);
 	}

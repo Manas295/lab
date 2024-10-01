@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalDouble;
 
 public class Q07FindHighestSalaryOfEmployee {
 	public static void main(String[] args) {
@@ -19,6 +20,17 @@ public class Q07FindHighestSalaryOfEmployee {
 		.skip(0) //N-1 
 		.findFirst();
 		 System.out.println("Highest Salary : "+NthHighestSalary.get().getSalary());
+		 
+		 //Transforming Stream to primitive type Stream
+		 //average, sum, min (without specifying a comparator), max (without specifying a comparator) 
+		 //are not provided for Stream with object references. Since these operations are 
+		 //used quite frequently with streams so you will do this transformation using mapToxxx 
+		 //methods a lot if time.
+		 OptionalDouble max = employees.stream().mapToDouble(e->e.getSalary()).max();
+		 System.out.println(max.getAsDouble());
+		 
+		 double sum = employees.stream().mapToDouble(e->e.getSalary()).sum();
+		 System.out.println(sum);
 	}
 
 }

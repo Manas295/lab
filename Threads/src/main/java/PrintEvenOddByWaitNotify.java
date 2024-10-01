@@ -2,7 +2,7 @@
 public class PrintEvenOddByWaitNotify {
 	boolean odd;
 	int count = 1;
-	int MAX = 20;
+	int MAX = 10;
 
 	public void printOdd() {
 		synchronized (this) {
