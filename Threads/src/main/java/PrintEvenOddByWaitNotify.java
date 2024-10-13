@@ -43,7 +43,6 @@ public class PrintEvenOddByWaitNotify {
 				count++;
 				odd = true;
 				notify();
-
 			}
 		}
 	}
