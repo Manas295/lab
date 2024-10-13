@@ -1,48 +1,63 @@
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class TestClass {
 
 	public static void main(String[] args) {
-//		List<String> listOfWords = Arrays.asList("Peter", "John", "Mathew", "Pete", "John", "Mathew");
-//		
-//		listOfWords.stream().collect(Collectors.groupingBy(str->str,Collectors.counting()))
-//		.entrySet().forEach(entry-> System.out.println(entry.getKey()+" ---- "+entry.getValue()));
-//		
+		TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.right.left = new TreeNode(4);
+        root.right.right = new TreeNode(5);
+ 
+        StringBuilder sb = new StringBuilder();
+        //String serializedTree = serialize(root);
+        TestClass.serializeTree(root,sb);
+        String sb1 = sb.toString();
+        System.out.println("Serialized tree: " + sb1);
+        
+        Queue<String> qu = new LinkedList<String>();
+		for(String s : sb1.split(",")) {
+			qu.add(s);
+		}
+		
+		TreeNode node = DeSerializeTree(qu);
+		System.out.println(node);
+	}
+	static void serializeTree(TreeNode root,StringBuilder sb){
+        if(root==null){
+            sb.append("#,");
+            return;
+        }
+        System.out.println(root.val);
+        sb.append(root.val+",");
+        serializeTree(root.left,sb);
+        serializeTree(root.right,sb);
+    }
+	// 1,2,#,#,3,4,#,#,5,#,#,
+	static TreeNode DeSerializeTree(Queue<String> qu){
+		String sb = qu.poll();
+		if(sb.equals("#")){
+            System.out.print("#");
+            return null;
+        }
+		TreeNode root = new TreeNode(Integer.valueOf(sb));
+		System.out.println(root.val);
+		root.left = DeSerializeTree(qu);
+		root.right = DeSerializeTree(qu);
+		
+		return root;
+    }
 	
-			//.skip(3).forEach(System.out::println);
-//		List<Integer> listOfIntegers1 = Arrays.asList(111, 222, 333, 111, 555, 333, 777, 222);
-//		listOfIntegers1.stream().collect(Collectors.groupingBy(i->i,Collectors.counting()))
-//		.entrySet().stream().filter(ent->ent.getValue() >1).collect(Collectors.toList()).forEach(System.out::println);
-//		List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
-//		int sum = integers.stream().mapToInt(i->i).sum();
-//		System.out.println(sum);
-		
-		
-		int arr[] = {1, 2, 0, 4, 3, 0, 5, 0};
-		int index =0;
-		
-		for(int i=0;i<arr.length;i++) {
-			if(arr[i]!=0){
-				arr[index] = arr[i];
-				index++;
-			}
-		}
-		for(int i=index ; i<arr.length;i++) {
-			arr[i] = 0;
-		}
-		
-		for(int i : arr) {
-			System.out.println(i);
-		}
-		
-		List<Integer> listOfIntegers = Arrays.asList(50, 42, 26, 85, 74, 67, 88, 22);
-		listOfIntegers.stream().sorted((a,b)->Integer.compare(b,a))
-		.limit(3).collect(Collectors.toList()).forEach(System.out::println);
-		
-		
-		//(Comparator.comparing((a,b)-> Integer.compare(a,b))).limit(3);		
+	
 }
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+ 
+    TreeNode(int val) {
+        this.val = val;
+    }
+    
 }
