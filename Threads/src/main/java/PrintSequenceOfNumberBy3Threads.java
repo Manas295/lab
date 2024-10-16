@@ -18,6 +18,7 @@ class SharedNumber {
 					throw new RuntimeException(e);
 				}
 			}
+			
 			if (currentNumber <= maxNumber) {
 				System.out.println("Thread " + (threadId + 1) + ": " + currentNumber);
 				currentNumber++;
