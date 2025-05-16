@@ -54,5 +54,6 @@ public class PrintSequenceOfNumberBy3Threads {
 		thread1.start();
 		thread2.start();
 		thread3.start();
+
 	}
 }

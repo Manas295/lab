@@ -1,5 +1,6 @@
 package com.atomic;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class AtomicIntegerDemo {
 	public static void main(String[] args) {
@@ -34,6 +35,10 @@ public class AtomicIntegerDemo {
 		AtomicInteger atomicInteger2 = new AtomicInteger(10);
 		System.out.println("getAndDecrement() Value : "+atomicInteger2.getAndDecrement());
 		System.out.println("decrementAndGet() Value : "+atomicInteger2.decrementAndGet());
+
+		AtomicLong tokens = new AtomicLong(0);
+		tokens.set(30);
+		System.out.println("VALUE ---> "+tokens.get());
 
 	}
 

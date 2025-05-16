@@ -2,7 +2,9 @@ import java.util.Date;
 import java.util.concurrent.Semaphore;
 /*
  	Scenario
-	Imagine five philosophers sitting around a circular table, each with a plate of food. There are five forks placed between the philosophers. Each philosopher needs two forks to eat but can only pick up one fork at a time.
+	Imagine five philosophers sitting around a circular table, each with a plate of food. 
+	There are five forks placed between the philosophers. Each philosopher needs two forks 
+	to eat but can only pick up one fork at a time.
 
 	Goals
 	Avoid Deadlock: Ensure that no philosopher gets stuck waiting indefinitely.
